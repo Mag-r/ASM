@@ -1,2 +1,2 @@
 # ASM
-Module Advanced simulatio Methods.
+Module Advanced Simulation Methods.
