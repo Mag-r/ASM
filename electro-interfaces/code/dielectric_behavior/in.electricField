@@ -1,0 +1,154 @@
+# MD of SPC/E water between rigid walls
+
+variable        temp          equal  300
+variable        dt            equal  2.0
+variable        Nw            equal  2651
+
+# set wall time limit to ensure we write out a restart file at the end
+# timer timeout 47:30:00 every 1000
+
+#======General Settings =======
+
+processors * * *
+
+units               real
+boundary            p p f
+atom_style          full # for SPC/E
+
+
+# global model settings
+pair_style      lj/cut/coul/long 14.0 # Angstrom!!
+pair_modify     shift yes mix arithmetic # Lorentz-Berthelot
+kspace_style    pppm/electrode 1e-4
+kspace_modify   slab 3 # vacuum layer width
+bond_style      harmonic
+angle_style     harmonic
+
+region box block 0 42.6 0 44.2712 -25.1 25.1
+create_box      4 box                       &
+                bond/types 1                &
+                angle/types 1               &
+                extra/bond/per/atom 2       &
+                extra/angle/per/atom 1      &
+                extra/special/per/atom 2
+
+# prepare SPC/E topology
+molecule        spce spce.txt
+
+# Read xyz file
+read_dump graphene.xyz 0  x y z box no add yes format xyz #name frame_number box format add
+
+group           wall type 1 6
+
+#====== Forcefield =======
+mass 1 12.0110 # carbon
+mass 2 15.99940 # oxygen
+mass 3 1.00800 # hydrogen
+mass 4 12.0110 # carbon2
+
+pair_coeff 1 1 0.0663 3.5812 # graphene-graphene
+pair_coeff 2 2 0.1553 3.1656 # oxygen-oxygen
+pair_coeff 3 3 0.0000 0.0000 # hydrogen-hydrogen
+pair_coeff 4 4 0.0663 3.5812 # graphene2-graphene2
+
+# spce rigid settings
+bond_coeff      1     1000       1.0
+angle_coeff     1     100       109.47
+
+velocity        wall set 0.0 0.0 0.0
+region upper block $(xlo) $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region lower block $(xlo) $(xhi) $(ylo) $(yhi) $(zlo) 0
+group lowerAll region lower
+group upperAll region upper
+group lower intersect wall lowerAll
+group upper intersect wall upperAll
+group lowerAll delete
+group upperAll delete
+region upper delete
+region lower delete
+fix freeze_lower lower setforce 0.0 0.0 0.0
+fix freeze_upper upper setforce 0.0 0.0 0.0
+
+#set group upper mol 1
+#set group lower mol 6
+
+#######################################################################
+#                          Setup a few ions                           #
+#######################################################################
+
+
+# *********************************************************
+# setup water
+# *********************************************************
+# include only waters- not rigid slab
+
+lattice custom 4.5 a1 0.8 0.0 0.0 a2 0.0 0.8 0.0 a3 0.0 0.0 .6 basis 0.0 0.0 0.0
+region insert block $(xlo) $(xhi) $(ylo) $(yhi) $(-8.1) $(8.1)
+create_atoms 0 region insert mol spce 23786 
+#create_atoms 0 random 1 9872 insert mol spce 1786
+group           h2o type 2 3
+# evaporate waters to get desired number
+variable        Nd  equal $(count(h2o)/3 - v_Nw)       
+print "System has $(count(h2o)/3) waters. Removing ${Nd}."  
+fix 1 h2o evaporate 1 $(v_Nd*3) box 12496 molecule yes
+run 1 
+unfix 1
+#region box delete
+print "System now has $(count(h2o)/3) waters." 
+
+reset_atom_ids
+
+neighbor        2.0 bin
+neigh_modify    every 1 delay 10 check yes
+neigh_modify    exclude type 1 1
+neigh_modify    exclude type 4 4
+neigh_modify    exclude type 1 4
+timestep        ${dt}
+
+# Minimization run
+thermo 10
+min_style cg
+minimize 1.0e-4 1.0e-6 1000 10000
+
+# setup nvt for ions and water
+group           solvent type 2 3
+compute watertemp solvent temp
+velocity solvent create 300.0 4928459 rot yes dist gaussian
+
+# ======== set up NVT integration ========
+# rigid constraints with thermostat 
+fix             wshake h2o shake 0.0001 50 0 b 1 a 1 mol spce
+
+fix             mynvt solvent nvt temp ${temp} ${temp} $(100.0*v_dt)
+fix_modify      mynvt temp watertemp
+thermo_style custom step pe ke ecoul elong evdwl c_watertemp # water temp
+
+fix eField solvent efield 0.0 0.0 0.02
+
+
+# ======== equilibrate for ? ns ========
+reset_timestep 0
+thermo 50
+# dump equilxtc h2o xtc 50 equil.xtc
+variable doutx equal 50 # 0.1ps
+#
+dump xtc all xtc ${doutx} traj_debug.xtc
+run 500 # 1 ps, ~ correlation time of spce water
+
+write_dump solvent xyz water_ions.xyz
+write_data equilibrated_structure.data
+
+## ======== production run ========
+
+undump xtc
+reset_timestep 0
+# Dump to also show the changing charge of the walls
+dump alldump all custom 50 wallcharge_efield_act.lammpstrj id type x y z q
+thermo 500 # frequency log file 
+#
+variable doutx equal 50 # 0.1ps
+#
+dump xtc all xtc ${doutx} traj.xtc
+
+run         200000 # 400 ps
+write_data structure.data
