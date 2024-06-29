@@ -1,0 +1,80 @@
+# MD of SPC/E water between rigid walls
+
+variable        temp          equal  300
+variable        dt            equal  2.0
+variable eta loop 20
+
+#======General Settings =======
+
+processors * * *
+
+units		    real
+boundary	    p p f
+atom_style	    full # for SPC/E
+
+
+# global model settings
+pair_style      lj/cut/coul/long 14.0 # Angstrom!!
+pair_modify     shift yes mix arithmetic # Lorentz-Berthelot
+
+kspace_style    pppm/electrode 1e-6
+kspace_modify   slab 3 # vacuum layer width
+
+region box block 0 42.6 0 44.2712 -7.1 7.1
+create_box      1 box
+
+# Read xyz file
+read_dump graphene.xyz 0  x y z box no add yes format xyz #name frame_number box format add
+
+group           wall type 1
+
+# Needed to let the kspace 
+set type 1 charge 1e-5
+
+#====== Forcefield =======
+mass 1 12.0110
+
+pair_coeff 1 1 0.0663 3.5812 #interaction between part 1 eps, sig
+
+# Creates groups for the walls and freezes them in place
+velocity    	wall set 0.0 0.0 0.0
+region upper block $(xlo) $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region lower block $(xlo) $(xhi) $(ylo) $(yhi) $(zlo) 0
+group lowerAll region lower
+group upperAll region upper
+group lower intersect wall lowerAll
+group upper intersect wall upperAll
+group lowerAll delete
+group upperAll delete
+region upper delete
+region lower delete
+fix freeze_lower lower setforce 0.0 0.0 0.0
+fix freeze_upper upper setforce 0.0 0.0 0.0
+
+#set group upper mol 1
+#set group lower mol 2
+
+reset_atoms id
+
+neighbor        2.0 bin
+timestep        ${dt}
+
+
+label loop_start
+    variable current_eta equal ${eta}/10
+    reset_atoms id
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+
+    run 2
+    undump alldump${current_eta}
+    next eta
+    jump SELF loop_start
+label loop_end

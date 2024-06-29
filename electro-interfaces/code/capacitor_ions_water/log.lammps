@@ -1,0 +1,411 @@
+LAMMPS (17 Apr 2024)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+# MD of SPC/E water between rigid walls
+
+variable        temp          equal  300
+variable        dt            equal  2.0
+variable        Nw            equal  2651
+
+# set wall time limit to ensure we write out a restart file at the end
+# timer timeout 47:30:00 every 1000
+
+#======General Settings =======
+
+processors * * *
+
+units               real
+boundary            p p f
+atom_style          full # for SPC/E
+
+
+# global model settings
+pair_style      lj/cut/coul/long 14.0 # Angstrom!!
+pair_modify     shift yes mix arithmetic # Lorentz-Berthelot
+kspace_style    pppm/electrode 1e-6
+kspace_modify   slab 3 # vacuum layer width
+bond_style      harmonic
+angle_style     harmonic
+
+region box block 0 42.6 0 44.2712 -25.1 25.1
+create_box      6 box                                       bond/types 1                                angle/types 1                               extra/bond/per/atom 2                       extra/angle/per/atom 1                      extra/special/per/atom 2
+Created orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  1 by 2 by 5 MPI processor grid
+
+# prepare SPC/E topology
+molecule        spce spce.txt
+Read molecule template spce:
+# SPC/E water molecule
+  1 molecules
+  0 fragments
+  3 atoms with max type 3
+  2 bonds with max type 1
+  1 angles with max type 1
+  0 dihedrals with max type 0
+  0 impropers with max type 0
+
+# Read xyz file
+read_dump graphene.xyz 0  x y z box no add yes format xyz #name frame_number box format add
+Adding 'type' field to requested per-atom fields
+Scanning dump file ...
+Reading snapshot from dump file ...
+  orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  0 atoms before read
+  1440 atoms in snapshot
+  0 atoms purged
+  0 atoms replaced
+  0 atoms trimmed
+  1440 atoms added
+  1440 atoms after read
+
+group           wall type 1 6
+1440 atoms in group wall
+
+#====== Forcefield =======
+mass 1 12.0110 # carbon
+mass 2 15.99940 # oxygen
+mass 3 1.00800 # hydrogen
+mass 4 22.9898 # Na
+mass 5 35.453 # Cl
+mass 6 12.0110 # carbon2
+
+pair_coeff 1 1 0.0663 3.5812 # graphene-graphene
+pair_coeff 2 2 0.1553 3.1656 # oxygen-oxygen
+pair_coeff 3 3 0.0000 0.0000 # hydrogen-hydrogen
+pair_coeff 4 4 0.09999999999999999 2.584 # Na-Na
+pair_coeff 5 5 0.09999999999999999 4.401 # Cl-Cl
+pair_coeff 6 6 0.0663 3.5812 # graphene2-graphene2
+
+# spce rigid settings
+bond_coeff      1     1000       1.0
+angle_coeff     1     100       109.47
+
+velocity        wall set 0.0 0.0 0.0
+region upper block $(xlo) $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 0 $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 0 44.27120000000000033 0 $(zhi)
+region upper block 0 42.600000000000001421 0 44.27120000000000033 0 25.100000000000001421
+region lower block $(xlo) $(xhi) $(ylo) $(yhi) $(zlo) 0
+region lower block 0 $(xhi) $(ylo) $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 $(ylo) $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 0 $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 0 44.27120000000000033 $(zlo) 0
+region lower block 0 42.600000000000001421 0 44.27120000000000033 -25.100000000000001421 0
+group lowerAll region lower
+720 atoms in group lowerAll
+group upperAll region upper
+720 atoms in group upperAll
+group lower intersect wall lowerAll
+720 atoms in group lower
+group upper intersect wall upperAll
+720 atoms in group upper
+group lowerAll delete
+group upperAll delete
+region upper delete
+region lower delete
+fix freeze_lower lower setforce 0.0 0.0 0.0
+fix freeze_upper upper setforce 0.0 0.0 0.0
+
+#set group upper mol 1
+#set group lower mol 6
+
+#######################################################################
+#                          Setup a few ions                           #
+#######################################################################
+variable xpos equal random(0,$(xhi),42)
+variable xpos equal random(0,42.600000000000001421,42)
+variable ypos equal random(0,$(yhi),42)
+variable ypos equal random(0,44.27120000000000033,42)
+variable zpos equal random($(zlo)+3,$(zhi)-3,42)
+variable zpos equal random(-25.100000000000001421+3,$(zhi)-3,42)
+variable zpos equal random(-25.100000000000001421+3,25.100000000000001421-3,42)
+
+# create Na
+create_atoms 4 single ${xpos} ${ypos} ${zpos}
+create_atoms 4 single 17.9320660829544 ${ypos} ${zpos}
+create_atoms 4 single 17.9320660829544 2.36691259689331 ${zpos}
+create_atoms 4 single 17.9320660829544 2.36691259689331 10.5902015686035
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 4 single ${xpos} ${ypos} ${zpos}
+create_atoms 4 single 26.2941858172417 ${ypos} ${zpos}
+create_atoms 4 single 26.2941858172417 35.3006726100922 ${zpos}
+create_atoms 4 single 26.2941858172417 35.3006726100922 -21.6539248108864
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 4 single ${xpos} ${ypos} ${zpos}
+create_atoms 4 single 15.6054027199745 ${ypos} ${zpos}
+create_atoms 4 single 15.6054027199745 15.8112672562599 ${zpos}
+create_atoms 4 single 15.6054027199745 15.8112672562599 1.864000415802
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 4 single ${xpos} ${ypos} ${zpos}
+create_atoms 4 single 16.1955487132072 ${ypos} ${zpos}
+create_atoms 4 single 16.1955487132072 26.2547107264996 ${zpos}
+create_atoms 4 single 16.1955487132072 26.2547107264996 14.9622463583946
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+set type 4 charge 1.
+Setting atom values ...
+  4 settings made for charge
+
+# create Cl
+create_atoms 5 single ${xpos} ${ypos} ${zpos}
+create_atoms 5 single 23.5632809042931 ${ypos} ${zpos}
+create_atoms 5 single 23.5632809042931 36.666808258009 ${zpos}
+create_atoms 5 single 23.5632809042931 36.666808258009 -2.28963959217072
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 5 single ${xpos} ${ypos} ${zpos}
+create_atoms 5 single 1.67083951234818 ${ypos} ${zpos}
+create_atoms 5 single 1.67083951234818 15.8431171998978 ${zpos}
+create_atoms 5 single 1.67083951234818 15.8431171998978 12.3860389113426
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 5 single ${xpos} ${ypos} ${zpos}
+create_atoms 5 single 9.64388408660889 ${ypos} ${zpos}
+create_atoms 5 single 9.64388408660889 36.6125762744427 ${zpos}
+create_atoms 5 single 9.64388408660889 36.6125762744427 -18.0695293188095
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+create_atoms 5 single ${xpos} ${ypos} ${zpos}
+create_atoms 5 single 11.1462733268738 ${ypos} ${zpos}
+create_atoms 5 single 11.1462733268738 2.01072625951767 ${zpos}
+create_atoms 5 single 11.1462733268738 2.01072625951767 10.0015774846077
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.000 seconds
+set type 5 charge -1.
+Setting atom values ...
+  4 settings made for charge
+
+# *********************************************************
+# setup water
+# *********************************************************
+# include only waters- not rigid slab
+
+lattice custom 4.5 a1 0.8 0.0 0.0 a2 0.0 0.8 0.0 a3 0.0 0.0 .6 basis 0.0 0.0 0.0
+Lattice spacing in x,y,z = 3.6 3.6 2.7
+region insert block $(xlo) $(xhi) $(ylo) $(yhi) $(-8.1) $(8.1)
+region insert block 0 $(xhi) $(ylo) $(yhi) $(-8.1) $(8.1)
+region insert block 0 42.600000000000001421 $(ylo) $(yhi) $(-8.1) $(8.1)
+region insert block 0 42.600000000000001421 0 $(yhi) $(-8.1) $(8.1)
+region insert block 0 42.600000000000001421 0 44.27120000000000033 $(-8.1) $(8.1)
+region insert block 0 42.600000000000001421 0 44.27120000000000033 -8.0999999999999996447 $(8.1)
+region insert block 0 42.600000000000001421 0 44.27120000000000033 -8.0999999999999996447 8.0999999999999996447
+create_atoms 0 region insert mol spce 23786
+Created 7956 atoms
+  using lattice units in orthogonal box = (0 0 -25.1) to (42.6 44.2712 25.1)
+  create_atoms CPU = 0.001 seconds
+#create_atoms 0 random 1 9872 insert mol spce 1786
+group           h2o type 2 3
+7956 atoms in group h2o
+# evaporate waters to get desired number
+variable        Nd  equal $(count(h2o)/3 - v_Nw)
+variable        Nd  equal 1
+print "System has $(count(h2o)/3) waters. Removing ${Nd}."
+System has 2652 waters. Removing 1.
+fix 1 h2o evaporate 1 $(v_Nd*3) box 12496 molecule yes
+fix 1 h2o evaporate 1 3 box 12496 molecule yes
+run 1
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- kspace_style pppm/electrode command:
+
+@article{Ahrens2021,
+author = {Ahrens-Iwers, Ludwig J.V. and Mei{\ss}ner, Robert H.},
+doi = {10.1063/5.0063381},
+title = {{Constant potential simulations on a mesh}},
+journal = {Journal of Chemical Physics},
+year = {2021}
+volume = {155},
+pages = {104104},
+}
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.23783361
+  grid = 40 45 100
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00036359168
+  estimated relative force accuracy = 1.0949456e-06
+  using double precision FFTW3
+  3d grid and FFT values/proc = 107160 68080
+Generated 15 of 15 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 7
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 12.67 | 14.32 | 20.16 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              1.5058045e+11  0.0030706219   1.5058045e+11  4.3623415e+11
+         1   0              1.5058045e+11  0.0030694641   1.5058045e+11  4.3623415e+11
+Loop time of 0.0586197 on 10 procs for 1 steps with 9401 atoms
+
+Performance: 1.474 ns/day, 16.283 hours/ns, 17.059 timesteps/s, 160.373 katom-step/s
+98.1% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.015594   | 0.020359   | 0.024827   |   2.1 | 34.73
+Bond    | 2.6191e-05 | 3.9473e-05 | 5.0222e-05 |   0.0 |  0.07
+Kspace  | 0.0084931  | 0.012942   | 0.017725   |   2.6 | 22.08
+Neigh   | 0.023765   | 0.023894   | 0.024094   |   0.1 | 40.76
+Comm    | 0.00095245 | 0.0011678  | 0.0013109  |   0.3 |  1.99
+Output  | 4.3791e-05 | 6.289e-05  | 8.2652e-05 |   0.0 |  0.11
+Modify  | 7.2592e-05 | 7.6647e-05 | 8.1402e-05 |   0.0 |  0.13
+Other   |            | 7.774e-05  |            |       |  0.13
+
+Nlocal:          940.1 ave        1081 max         788 min
+Histogram: 2 0 1 2 1 0 0 0 2 2
+Nghost:        12071.7 ave       14561 max        9516 min
+Histogram: 4 0 0 0 0 0 0 4 0 2
+Neighs:         665329 ave      847681 max      445832 min
+Histogram: 1 1 0 1 0 3 0 3 0 1
+
+Total # of neighbors = 6653291
+Ave neighs/atom = 707.72163
+Ave special neighs/atom = 1.6919477
+Neighbor list builds = 1
+Dangerous builds = 0
+unfix 1
+#region box delete
+print "System now has $(count(h2o)/3) waters."
+System now has 2651 waters.
+
+reset_atom_ids
+
+WARNING: 'reset_atom_ids' has been renamed to 'reset_atoms id'. Please update your input.
+
+reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.23783319
+  grid = 40 45 100
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00036351831
+  estimated relative force accuracy = 1.0947246e-06
+  using double precision FFTW3
+  3d grid and FFT values/proc = 107160 68080
+Generated 15 of 15 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+     5 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+
+neighbor        2.0 bin
+neigh_modify    every 1 delay 10 check yes
+neigh_modify    exclude type 1 1
+neigh_modify    exclude type 6 6
+neigh_modify    exclude type 1 6
+timestep        ${dt}
+timestep        2
+
+# Minimization run
+thermo 10
+min_style cg
+minimize 1.0e-4 1.0e-6 1000 10000
+Switching to 'neigh_modify every 1 delay 0 check yes' setting during minimization
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.23783319
+  grid = 40 45 100
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.00036351831
+  estimated relative force accuracy = 1.0947246e-06
+  using double precision FFTW3
+  3d grid and FFT values/proc = 107160 68080
+Generated 15 of 15 mixed pair_coeff terms from arithmetic mixing rule
+WARNING: Neighbor exclusions used with KSpace solver may give inconsistent Coulombic energies (src/neighbor.cpp:654)
+Per MPI rank memory allocation (min/avg/max) = 13.92 | 15.57 | 21.41 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         1   0              1.5054258e+11  0.0030694641   1.5054258e+11  4.3612418e+11
+        10   0              3222328.2      8505.0209      3230833.3      9400274.9    
+        20   0              18855.94       6995.1093      25851.049      64122.393    
+        30   0              1701.207       587.12191      2288.3289      28562.353    
+        40   0             -8042.7786      489.42419     -7553.3544      15358.173    
+        50   0             -17748.815      989.81966     -16758.995     -1484.106     
+        60   0             -22027.546      1074.5352     -20953.011      2675.182     
+        70   0             -24566.761      684.83349     -23881.928      736.38168    
+        80   0             -27711.953      851.82586     -26860.127     -5545.6686    
+        90   0             -29216.046      846.05088     -28369.995     -3762.6525    
+       100   0             -30421.15       915.73021     -29505.419     -7820.3231    
+       110   0             -31302.112      919.69606     -30382.416     -5770.8149    
+       120   0             -32364.985      1072.0721     -31292.913     -7229.4039    
+       130   0             -33037.284      1040.5948     -31996.689     -5957.2055    
+       140   0             -33780.986      1086.1186     -32694.867     -7072.3144    
+       150   0             -34292.068      1081.7444     -33210.323     -7138.4244    
+       160   0             -34710.836      1066.6329     -33644.203     -6644.5342    
+       170   0             -35138.179      1154.2152     -33983.963     -8007.5577    
+       180   0             -35345.396      1078.4883     -34266.908     -6380.711     
+       190   0             -35608.374      1085.9982     -34522.376     -6216.8027    
+       200   0             -35832.602      1098.3217     -34734.28      -6430.1724    
+       210   0             -36031.245      1123.7358     -34907.51      -6573.7728    
+       220   0             -36204.378      1127.8118     -35076.567     -6434.2317    
+       230   0             -36331.517      1128.6359     -35202.881     -6325.8809    
+       239   0             -36438.647      1134.7719     -35303.875     -6309.6884    
+Loop time of 14.1049 on 10 procs for 238 steps with 9401 atoms
+
+96.4% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+      150542575812.424  -35300.8361618717  -35303.8748831768
+  Force two-norm initial, final = 3.4265817e+12 102.07956
+  Force max component initial, final = 1.7760264e+12 24.310309
+  Final line search alpha, max atom move = 0.0056887351 0.13829491
+  Iterations, force evaluations = 238 411
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.3684     | 8.1407     | 9.1766     |  47.8 | 57.72
+Bond    | 0.010652   | 0.013053   | 0.016064   |   1.5 |  0.09
+Kspace  | 4.2255     | 5.2039     | 7.9929     |  59.4 | 36.89
+Neigh   | 0.41735    | 0.4189     | 0.42086    |   0.2 |  2.97
+Comm    | 0.20152    | 0.2747     | 0.32651    |   7.9 |  1.95
+Output  | 0.0014194  | 0.0014613  | 0.001807   |   0.3 |  0.01
+Modify  | 0.0011623  | 0.0016424  | 0.0024165  |   1.1 |  0.01
+Other   |            | 0.05045    |            |       |  0.36
+
+Nlocal:          940.1 ave        1080 max         785 min
+Histogram: 1 0 3 0 2 0 0 0 2 2
+Nghost:        12056.6 ave       14851 max        9353 min
+Histogram: 4 0 0 0 0 0 0 4 0 2
+Neighs:         643571 ave      750582 max      403962 min
+Histogram: 2 0 0 0 0 0 1 1 3 3
+
+Total # of neighbors = 6435714
+Ave neighs/atom = 684.5776
+Ave special neighs/atom = 1.6919477
+Neighbor list builds = 9
+Dangerous builds = 0

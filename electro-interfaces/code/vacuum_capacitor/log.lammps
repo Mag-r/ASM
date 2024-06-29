@@ -1,0 +1,1623 @@
+LAMMPS (17 Apr 2024)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+# MD of SPC/E water between rigid walls
+
+variable        temp          equal  300
+variable        dt            equal  2.0
+variable eta loop 20
+
+#======General Settings =======
+
+processors * * *
+
+units		    real
+boundary	    p p f
+atom_style	    full # for SPC/E
+
+
+# global model settings
+pair_style      lj/cut/coul/long 14.0 # Angstrom!!
+pair_modify     shift yes mix arithmetic # Lorentz-Berthelot
+
+kspace_style    pppm/electrode 1e-6
+kspace_modify   slab 3 # vacuum layer width
+
+region box block 0 42.6 0 44.2712 -7.1 7.1
+create_box      1 box
+Created orthogonal box = (0 0 -7.1) to (42.6 44.2712 7.1)
+  2 by 5 by 1 MPI processor grid
+
+# Read xyz file
+read_dump graphene.xyz 0  x y z box no add yes format xyz #name frame_number box format add
+Adding 'type' field to requested per-atom fields
+Scanning dump file ...
+Reading snapshot from dump file ...
+  orthogonal box = (0 0 -7.1) to (42.6 44.2712 7.1)
+  0 atoms before read
+  1440 atoms in snapshot
+  0 atoms purged
+  0 atoms replaced
+  0 atoms trimmed
+  1440 atoms added
+  1440 atoms after read
+
+group           wall type 1
+1440 atoms in group wall
+
+# Needed to let the kspace
+set type 1 charge 1e-5
+Setting atom values ...
+  1440 settings made for charge
+
+#====== Forcefield =======
+mass 1 12.0110
+
+pair_coeff 1 1 0.0663 3.5812 #interaction between part 1 eps, sig
+
+# Creates groups for the walls and freezes them in place
+velocity    	wall set 0.0 0.0 0.0
+region upper block $(xlo) $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 $(xhi) $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 $(ylo) $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 0 $(yhi) 0 $(zhi)
+region upper block 0 42.600000000000001421 0 44.27120000000000033 0 $(zhi)
+region upper block 0 42.600000000000001421 0 44.27120000000000033 0 7.0999999999999996447
+region lower block $(xlo) $(xhi) $(ylo) $(yhi) $(zlo) 0
+region lower block 0 $(xhi) $(ylo) $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 $(ylo) $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 0 $(yhi) $(zlo) 0
+region lower block 0 42.600000000000001421 0 44.27120000000000033 $(zlo) 0
+region lower block 0 42.600000000000001421 0 44.27120000000000033 -7.0999999999999996447 0
+group lowerAll region lower
+720 atoms in group lowerAll
+group upperAll region upper
+720 atoms in group upperAll
+group lower intersect wall lowerAll
+720 atoms in group lower
+group upper intersect wall upperAll
+720 atoms in group upper
+group lowerAll delete
+group upperAll delete
+region upper delete
+region lower delete
+fix freeze_lower lower setforce 0.0 0.0 0.0
+fix freeze_upper upper setforce 0.0 0.0 0.0
+
+#set group upper mol 1
+#set group lower mol 2
+
+reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+WARNING: System is not charge neutral, net charge = 0.0144 (src/kspace.cpp:327)
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.0156215e-10
+  estimated relative force accuracy = 3.058514e-13
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+
+neighbor        2.0 bin
+timestep        ${dt}
+timestep        2
+
+
+label loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 1/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.0156215e-10
+  estimated relative force accuracy = 3.058514e-13
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.1 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.1 2.925 couple upper -0.1 write_inv inv.out
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.1 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.1 all custom 1 wallcharge_0.1.lammpstrj x y z q
+
+    run 2
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- kspace_style pppm/electrode command:
+
+@article{Ahrens2021,
+author = {Ahrens-Iwers, Ludwig J.V. and Mei{\ss}ner, Robert H.},
+doi = {10.1063/5.0063381},
+title = {{Constant potential simulations on a mesh}},
+journal = {Journal of Chemical Physics},
+year = {2021}
+volume = {155},
+pages = {104104},
+}
+- fix electrode command:
+
+@article{Ahrens2022
+author = {Ahrens-Iwers, Ludwig J.V. and Janssen, Mahijs and Tee, Shern R. and Mei{\ss}ner, Robert H.},
+doi = {10.1063/5.0099239},
+title = {{ELECTRODE: An electrochemistry package for LAMMPS}},
+journal = {The Journal of Chemical Physics},
+year = {2022}
+volume = {157},
+pages = {084801},
+}
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.0156215e-10
+  estimated relative force accuracy = 3.058514e-13
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.1 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877493       0              37877493       3.8875508e+08
+         2   0              37877493       0              37877493       3.8875508e+08
+Loop time of 0.00373788 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 92.459 ns/day, 0.260 hours/ns, 535.063 timesteps/s, 770.491 katom-step/s
+99.9% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00046628 | 0.00056594 | 0.00084284 |   0.0 | 15.14
+Bond    | 9.5e-08    | 1.554e-07  | 2.79e-07   |   0.0 |  0.00
+Kspace  | 0.0002054  | 0.0004802  | 0.00057931 |   0.0 | 12.85
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 8.2196e-05 | 9.305e-05  | 0.00010645 |   0.0 |  2.49
+Output  | 0.00032941 | 0.00036693 | 0.00040013 |   0.0 |  9.82
+Modify  | 0.0021679  | 0.0021794  | 0.0021872  |   0.0 | 58.30
+Other   |            | 5.224e-05  |            |       |  1.40
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.1
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 2/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 4.3512502e-08
+  estimated relative force accuracy = 1.3103661e-10
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.2 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.2 2.925 couple upper -0.2 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.2 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.2 all custom 1 wallcharge_0.2.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 4.3512502e-08
+  estimated relative force accuracy = 1.3103661e-10
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.2 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877494       0              37877494       3.8875508e+08
+         2   0              37877494       0              37877494       3.8875508e+08
+Loop time of 0.00426812 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 80.973 ns/day, 0.296 hours/ns, 468.591 timesteps/s, 674.771 katom-step/s
+98.7% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056843 | 0.00069174 | 0.0010303  |   0.0 | 16.21
+Bond    | 1.31e-07   | 2.06e-07   | 3.47e-07   |   0.0 |  0.00
+Kspace  | 0.00025005 | 0.00058757 | 0.00071109 |   0.0 | 13.77
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.4571e-05 | 0.00010921 | 0.00012227 |   0.0 |  2.56
+Output  | 0.00034322 | 0.00039632 | 0.00043332 |   0.0 |  9.29
+Modify  | 0.0024129  | 0.0024217  | 0.0024319  |   0.0 | 56.74
+Other   |            | 6.133e-05  |            |       |  1.44
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.2
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 3/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.7405001e-07
+  estimated relative force accuracy = 5.2414643e-10
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.3 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.3 2.925 couple upper -0.3 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.3 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.3 all custom 1 wallcharge_0.3.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.7405001e-07
+  estimated relative force accuracy = 5.2414643e-10
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.3 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877495       0              37877495       3.8875508e+08
+         2   0              37877495       0              37877495       3.8875508e+08
+Loop time of 0.00425984 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 81.130 ns/day, 0.296 hours/ns, 469.501 timesteps/s, 676.082 katom-step/s
+98.7% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056877 | 0.00068826 | 0.0010239  |   0.0 | 16.16
+Bond    | 1.1e-07    | 1.733e-07  | 2.31e-07   |   0.0 |  0.00
+Kspace  | 0.0002445  | 0.00058002 | 0.00070052 |   0.0 | 13.62
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.8033e-05 | 0.00011038 | 0.00012479 |   0.0 |  2.59
+Output  | 0.00034771 | 0.00040318 | 0.00044182 |   0.0 |  9.46
+Modify  | 0.0024054  | 0.0024158  | 0.0024246  |   0.0 | 56.71
+Other   |            | 6.205e-05  |            |       |  1.46
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.3
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 4/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 3.9161251e-07
+  estimated relative force accuracy = 1.1793295e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.4 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.4 2.925 couple upper -0.4 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.4 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.4 all custom 1 wallcharge_0.4.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 3.9161251e-07
+  estimated relative force accuracy = 1.1793295e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.4 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877498       0              37877498       3.8875508e+08
+         2   0              37877498       0              37877498       3.8875508e+08
+Loop time of 0.00477415 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 72.390 ns/day, 0.332 hours/ns, 418.922 timesteps/s, 603.248 katom-step/s
+96.8% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00057447 | 0.00072935 | 0.0010834  |   0.0 | 15.28
+Bond    | 1.08e-07   | 1.964e-07  | 2.98e-07   |   0.0 |  0.00
+Kspace  | 0.00028187 | 0.000636   | 0.00079085 |   0.0 | 13.32
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00010105 | 0.00011015 | 0.00011705 |   0.0 |  2.31
+Output  | 0.00057419 | 0.00061958 | 0.00065345 |   0.0 | 12.98
+Modify  | 0.0026153  | 0.0026207  | 0.0026246  |   0.0 | 54.89
+Other   |            | 5.815e-05  |            |       |  1.22
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.4
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 5/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 6.9620003e-07
+  estimated relative force accuracy = 2.0965857e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.5 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.5 2.925 couple upper -0.5 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.5 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.5 all custom 1 wallcharge_0.5.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 6.9620003e-07
+  estimated relative force accuracy = 2.0965857e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.5 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877501       0              37877501       3.8875509e+08
+         2   0              37877501       0              37877501       3.8875509e+08
+Loop time of 0.0045666 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 75.680 ns/day, 0.317 hours/ns, 437.963 timesteps/s, 630.667 katom-step/s
+99.7% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056801 | 0.00072483 | 0.0010337  |   0.0 | 15.87
+Bond    | 1.09e-07   | 2.127e-07  | 3.77e-07   |   0.0 |  0.00
+Kspace  | 0.00026594 | 0.00057212 | 0.00072851 |   0.0 | 12.53
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.9225e-05 | 0.00011037 | 0.00011835 |   0.0 |  2.42
+Output  | 0.0005314  | 0.00057002 | 0.00060577 |   0.0 | 12.48
+Modify  | 0.0025242  | 0.0025335  | 0.0025414  |   0.0 | 55.48
+Other   |            | 5.556e-05  |            |       |  1.22
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.5
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 6/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.0878125e-06
+  estimated relative force accuracy = 3.2759152e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.6 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.6 2.925 couple upper -0.6 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.6 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.6 all custom 1 wallcharge_0.6.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.0878125e-06
+  estimated relative force accuracy = 3.2759152e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.6 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877505       0              37877505       3.8875509e+08
+         2   0              37877505       0              37877505       3.8875509e+08
+Loop time of 0.00451683 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 76.514 ns/day, 0.314 hours/ns, 442.789 timesteps/s, 637.615 katom-step/s
+97.7% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056274 | 0.0007196  | 0.0010165  |   0.0 | 15.93
+Bond    | 1.19e-07   | 1.984e-07  | 2.85e-07   |   0.0 |  0.00
+Kspace  | 0.00026375 | 0.00055881 | 0.00071556 |   0.0 | 12.37
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00010613 | 0.0001153  | 0.00012689 |   0.0 |  2.55
+Output  | 0.00054401 | 0.00058634 | 0.00061808 |   0.0 | 12.98
+Modify  | 0.0024725  | 0.0024805  | 0.0024881  |   0.0 | 54.92
+Other   |            | 5.61e-05   |            |       |  1.24
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.6
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 7/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.5664501e-06
+  estimated relative force accuracy = 4.7173178e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.7 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.7 2.925 couple upper -0.7 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.7 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.7 all custom 1 wallcharge_0.7.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 1.5664501e-06
+  estimated relative force accuracy = 4.7173178e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.7 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877509       0              37877509       3.8875509e+08
+         2   0              37877509       0              37877509       3.8875509e+08
+Loop time of 0.00423009 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 81.700 ns/day, 0.294 hours/ns, 472.803 timesteps/s, 680.837 katom-step/s
+98.9% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00058776 | 0.00070136 | 0.0010006  |   0.0 | 16.58
+Bond    | 1e-07      | 1.798e-07  | 3.34e-07   |   0.0 |  0.00
+Kspace  | 0.00025259 | 0.00055126 | 0.00066525 |   0.0 | 13.03
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.4582e-05 | 0.00010652 | 0.00012268 |   0.0 |  2.52
+Output  | 0.00037187 | 0.00041901 | 0.00046115 |   0.0 |  9.91
+Modify  | 0.0023735  | 0.0023883  | 0.0023953  |   0.0 | 56.46
+Other   |            | 6.346e-05  |            |       |  1.50
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.7
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 8/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 2.1321126e-06
+  estimated relative force accuracy = 6.4207937e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.8 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.8 2.925 couple upper -0.8 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.8 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.8 all custom 1 wallcharge_0.8.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 2.1321126e-06
+  estimated relative force accuracy = 6.4207937e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.8 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877514       0              37877514       3.8875509e+08
+         2   0              37877514       0              37877514       3.8875509e+08
+Loop time of 0.00508494 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 67.965 ns/day, 0.353 hours/ns, 393.318 timesteps/s, 566.378 katom-step/s
+100.0% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00058913 | 0.00074798 | 0.0011699  |   0.0 | 14.71
+Bond    | 1.12e-07   | 2.067e-07  | 2.69e-07   |   0.0 |  0.00
+Kspace  | 0.00028622 | 0.00070543 | 0.00086463 |   0.0 | 13.87
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00010278 | 0.00011021 | 0.00011875 |   0.0 |  2.17
+Output  | 0.00053943 | 0.00057657 | 0.00062036 |   0.0 | 11.34
+Modify  | 0.0028794  | 0.0028851  | 0.0028912  |   0.0 | 56.74
+Other   |            | 5.942e-05  |            |       |  1.17
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.8
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 9/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 2.7848001e-06
+  estimated relative force accuracy = 8.3863428e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.9 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 0.9 2.925 couple upper -0.9 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.9 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump0.9 all custom 1 wallcharge_0.9.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 2.7848001e-06
+  estimated relative force accuracy = 8.3863428e-09
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump0.9 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877520       0              37877520       3.887551e+08 
+         2   0              37877520       0              37877520       3.887551e+08 
+Loop time of 0.004782 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 72.271 ns/day, 0.332 hours/ns, 418.235 timesteps/s, 602.258 katom-step/s
+100.0% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00057404 | 0.00072178 | 0.001106   |   0.0 | 15.09
+Bond    | 1.08e-07   | 1.656e-07  | 2.53e-07   |   0.0 |  0.00
+Kspace  | 0.00028245 | 0.00066614 | 0.00081159 |   0.0 | 13.93
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.8182e-05 | 0.00010791 | 0.00011758 |   0.0 |  2.26
+Output  | 0.00050921 | 0.00054994 | 0.0005886  |   0.0 | 11.50
+Modify  | 0.002674   | 0.0026808  | 0.002685   |   0.0 | 56.06
+Other   |            | 5.53e-05   |            |       |  1.16
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump0.9
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 10/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 3.5245126e-06
+  estimated relative force accuracy = 1.0613965e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1 2.925 couple upper -1 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1 all custom 1 wallcharge_1.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 3.5245126e-06
+  estimated relative force accuracy = 1.0613965e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump1 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877527       0              37877527       3.887551e+08 
+         2   0              37877527       0              37877527       3.887551e+08 
+Loop time of 0.00446172 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 77.459 ns/day, 0.310 hours/ns, 448.258 timesteps/s, 645.491 katom-step/s
+97.9% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00057544 | 0.0007291  | 0.0010038  |   0.0 | 16.34
+Bond    | 1.13e-07   | 1.898e-07  | 2.84e-07   |   0.0 |  0.00
+Kspace  | 0.00026369 | 0.00053845 | 0.00069303 |   0.0 | 12.07
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00010155 | 0.00011218 | 0.00012022 |   0.0 |  2.51
+Output  | 0.00053    | 0.00057326 | 0.00060764 |   0.0 | 12.85
+Modify  | 0.0024462  | 0.0024511  | 0.0024578  |   0.0 | 54.94
+Other   |            | 5.742e-05  |            |       |  1.29
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump1
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 11/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 4.3512502e-06
+  estimated relative force accuracy = 1.3103661e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.1 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.1 2.925 couple upper -1.1 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.1 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.1 all custom 1 wallcharge_1.1.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 4.3512502e-06
+  estimated relative force accuracy = 1.3103661e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump1.1 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877534       0              37877534       3.887551e+08 
+         2   0              37877534       0              37877534       3.887551e+08 
+Loop time of 0.0042782 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 80.782 ns/day, 0.297 hours/ns, 467.487 timesteps/s, 673.181 katom-step/s
+98.7% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00057843 | 0.00069814 | 0.00099991 |   0.0 | 16.32
+Bond    | 1.13e-07   | 1.515e-07  | 2.21e-07   |   0.0 |  0.00
+Kspace  | 0.00025321 | 0.00055583 | 0.00067449 |   0.0 | 12.99
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.8669e-05 | 0.00010701 | 0.00011599 |   0.0 |  2.50
+Output  | 0.0003609  | 0.00041119 | 0.00044819 |   0.0 |  9.61
+Modify  | 0.0024399  | 0.002445   | 0.0024494  |   0.0 | 57.15
+Other   |            | 6.088e-05  |            |       |  1.42
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump1.1
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 12/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 5.2650127e-06
+  estimated relative force accuracy = 1.5855429e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.2 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.2 2.925 couple upper -1.2 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.2 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.2 all custom 1 wallcharge_1.2.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 5.2650127e-06
+  estimated relative force accuracy = 1.5855429e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump1.2 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877542       0              37877542       3.8875511e+08
+         2   0              37877542       0              37877542       3.8875511e+08
+Loop time of 0.00446595 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 77.386 ns/day, 0.310 hours/ns, 447.833 timesteps/s, 644.879 katom-step/s
+97.9% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056396 | 0.00071762 | 0.00098947 |   0.0 | 16.07
+Bond    | 1.08e-07   | 2.3e-07    | 3.02e-07   |   0.0 |  0.01
+Kspace  | 0.00026621 | 0.0005377  | 0.0006919  |   0.0 | 12.04
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.1116e-05 | 0.0001018  | 0.0001158  |   0.0 |  2.28
+Output  | 0.00050315 | 0.00054581 | 0.00058029 |   0.0 | 12.22
+Modify  | 0.0024944  | 0.0025053  | 0.0025124  |   0.0 | 56.10
+Other   |            | 5.747e-05  |            |       |  1.29
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump1.2
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 13/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 6.2658002e-06
+  estimated relative force accuracy = 1.8869271e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.3 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.3 2.925 couple upper -1.3 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.3 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.3 all custom 1 wallcharge_1.3.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 6.2658002e-06
+  estimated relative force accuracy = 1.8869271e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump1.3 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877550       0              37877550       3.8875511e+08
+         2   0              37877550       0              37877550       3.8875511e+08
+Loop time of 0.00428044 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 80.739 ns/day, 0.297 hours/ns, 467.242 timesteps/s, 672.828 katom-step/s
+89.3% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.0005745  | 0.00068691 | 0.00098393 |   0.0 | 16.05
+Bond    | 1.07e-07   | 1.515e-07  | 2.03e-07   |   0.0 |  0.00
+Kspace  | 0.00026905 | 0.0005656  | 0.00067683 |   0.0 | 13.21
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.447e-05  | 0.00010722 | 0.00012378 |   0.0 |  2.50
+Output  | 0.00036483 | 0.00041624 | 0.00046485 |   0.0 |  9.72
+Modify  | 0.0024182  | 0.0024335  | 0.0024445  |   0.0 | 56.85
+Other   |            | 7.079e-05  |            |       |  1.65
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+    undump alldump${current_eta}
+    undump alldump1.3
+    next eta
+    jump SELF loop_start
+    variable current_eta equal ${eta}/10
+    variable current_eta equal 14/10
+    reset_atoms id
+Resetting atom IDs ...
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 7.3536128e-06
+  estimated relative force accuracy = 2.2145186e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+    reset_timestep 0
+    # fix constant potential
+    # fix name conp voltage eta
+    # fix <ID> <group> electrode/<mode> <value> <eta>
+    fix conp1 lower electrode/conp ${current_eta} 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.4 2.925 couple upper -${current_eta} write_inv inv.out
+    fix conp1 lower electrode/conp 1.4 2.925 couple upper -1.4 write_inv inv.out
+WARNING: Replacing a fix, but new group != old group (src/modify.cpp:873)
+1440 atoms in group conp_group
+    #fix conp1 lower electrode/conp 0.5 ${current_eta} couple upper -0.5 read_inv inv.out
+
+    # dump wallcharge wall custom 50 wallcharge.lammpstrj x y z q
+    dump alldump${current_eta} all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.4 all custom 1 wallcharge_${current_eta}.lammpstrj x y z q
+    dump alldump1.4 all custom 1 wallcharge_1.4.lammpstrj x y z q
+
+    run 2
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+PPPM/electrode initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:342)
+  G vector (1/distance) = 0.16266425
+  grid = 8 9 8
+  stencil order = 5
+  estimated absolute RMS force accuracy = 7.3536128e-06
+  estimated relative force accuracy = 2.2145186e-08
+  using double precision FFTW3
+  3d grid and FFT values/proc = 720 64
+Generated 0 of 0 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 16
+  ghost atom cutoff = 16
+  binsize = 8, bins = 6 6 2
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) fix electrode/conp, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Dump alldump1.4 includes no atom IDs and is not sorted by ID. This may complicate post-processing tasks or visualization (src/dump.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 22.88 | 22.89 | 22.89 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              37877560       0              37877560       3.8875512e+08
+         2   0              37877560       0              37877560       3.8875512e+08
+Loop time of 0.0045735 on 10 procs for 2 steps with 1440 atoms
+
+Performance: 75.566 ns/day, 0.318 hours/ns, 437.301 timesteps/s, 629.714 katom-step/s
+97.5% CPU use with 10 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.00056545 | 0.00071923 | 0.0010232  |   0.0 | 15.73
+Bond    | 1.02e-07   | 1.851e-07  | 3.27e-07   |   0.0 |  0.00
+Kspace  | 0.00026293 | 0.00056623 | 0.00072085 |   0.0 | 12.38
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 9.6495e-05 | 0.00010841 | 0.00011898 |   0.0 |  2.37
+Output  | 0.00049597 | 0.00053306 | 0.00056769 |   0.0 | 11.66
+Modify  | 0.0025848  | 0.0025928  | 0.0025978  |   0.0 | 56.69
+Other   |            | 5.354e-05  |            |       |  1.17
+
+Nlocal:            144 ave         160 max         140 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Nghost:           1516 ave        1540 max        1510 min
+Histogram: 8 0 0 0 0 0 0 0 0 2
+Neighs:          26960 ave       30282 max       25764 min
+Histogram: 4 3 1 0 0 0 0 0 1 1
+
+Total # of neighbors = 269600
+Ave neighs/atom = 187.22222
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
