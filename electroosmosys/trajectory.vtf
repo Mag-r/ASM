@@ -1,0 +1,3005 @@
+unitcell 16.0 16.0 16.0
+atom 0 radius 1 name 0 type 0 
+atom 1 radius 1 name 0 type 0 
+atom 2 radius 1 name 0 type 0 
+atom 3 radius 1 name 0 type 0 
+atom 4 radius 1 name 0 type 0 
+atom 5 radius 1 name 0 type 0 
+atom 6 radius 1 name 0 type 0 
+atom 7 radius 1 name 0 type 0 
+atom 8 radius 1 name 0 type 0 
+atom 9 radius 1 name 0 type 0 
+atom 10 radius 1 name 0 type 0 
+atom 11 radius 1 name 0 type 0 
+atom 12 radius 1 name 0 type 0 
+atom 13 radius 1 name 0 type 0 
+atom 14 radius 1 name 0 type 0 
+atom 15 radius 1 name 0 type 0 
+atom 16 radius 1 name 0 type 0 
+atom 17 radius 1 name 0 type 0 
+atom 18 radius 1 name 0 type 0 
+atom 19 radius 1 name 0 type 0 
+atom 20 radius 1 name 0 type 0 
+atom 21 radius 1 name 0 type 0 
+atom 22 radius 1 name 0 type 0 
+atom 23 radius 1 name 0 type 0 
+atom 24 radius 1 name 0 type 0 
+atom 25 radius 1 name 0 type 0 
+atom 26 radius 1 name 0 type 0 
+atom 27 radius 1 name 0 type 0 
+atom 28 radius 1 name 0 type 0 
+atom 29 radius 1 name 0 type 0 
+atom 30 radius 1 name 0 type 0 
+atom 31 radius 1 name 0 type 0 
+atom 32 radius 1 name 0 type 0 
+atom 33 radius 1 name 0 type 0 
+atom 34 radius 1 name 0 type 0 
+atom 35 radius 1 name 0 type 0 
+atom 36 radius 1 name 0 type 0 
+atom 37 radius 1 name 0 type 0 
+atom 38 radius 1 name 0 type 0 
+atom 39 radius 1 name 0 type 0 
+atom 40 radius 1 name 0 type 0 
+atom 41 radius 1 name 0 type 0 
+atom 42 radius 1 name 0 type 0 
+atom 43 radius 1 name 0 type 0 
+atom 44 radius 1 name 0 type 0 
+atom 45 radius 1 name 0 type 0 
+atom 46 radius 1 name 0 type 0 
+atom 47 radius 1 name 0 type 0 
+atom 48 radius 1 name 0 type 0 
+atom 49 radius 1 name 0 type 0 
+atom 50 radius 1 name 0 type 0 
+atom 51 radius 1 name 0 type 0 
+atom 52 radius 1 name 0 type 0 
+atom 53 radius 1 name 0 type 0 
+atom 54 radius 1 name 0 type 0 
+atom 55 radius 1 name 0 type 0 
+atom 56 radius 1 name 0 type 0 
+atom 57 radius 1 name 0 type 0 
+atom 58 radius 1 name 0 type 0 
+atom 59 radius 1 name 0 type 0 
+atom 60 radius 1 name 0 type 0 
+atom 61 radius 1 name 0 type 0 
+atom 62 radius 1 name 0 type 0 
+atom 63 radius 1 name 0 type 0 
+atom 64 radius 1 name 0 type 0 
+atom 65 radius 1 name 0 type 0 
+atom 66 radius 1 name 0 type 0 
+atom 67 radius 1 name 0 type 0 
+atom 68 radius 1 name 0 type 0 
+atom 69 radius 1 name 0 type 0 
+atom 70 radius 1 name 0 type 0 
+atom 71 radius 1 name 0 type 0 
+atom 72 radius 1 name 0 type 0 
+atom 73 radius 1 name 0 type 0 
+atom 74 radius 1 name 0 type 0 
+atom 75 radius 1 name 0 type 0 
+atom 76 radius 1 name 0 type 0 
+atom 77 radius 1 name 0 type 0 
+atom 78 radius 1 name 0 type 0 
+atom 79 radius 1 name 0 type 0 
+atom 80 radius 1 name 0 type 0 
+atom 81 radius 1 name 0 type 0 
+atom 82 radius 1 name 0 type 0 
+atom 83 radius 1 name 0 type 0 
+atom 84 radius 1 name 0 type 0 
+atom 85 radius 1 name 0 type 0 
+atom 86 radius 1 name 0 type 0 
+atom 87 radius 1 name 0 type 0 
+atom 88 radius 1 name 0 type 0 
+atom 89 radius 1 name 0 type 0 
+atom 90 radius 1 name 0 type 0 
+atom 91 radius 1 name 0 type 0 
+atom 92 radius 1 name 0 type 0 
+atom 93 radius 1 name 0 type 0 
+atom 94 radius 1 name 0 type 0 
+atom 95 radius 1 name 0 type 0 
+atom 96 radius 1 name 0 type 0 
+atom 97 radius 1 name 0 type 0 
+atom 98 radius 1 name 0 type 0 
+atom 99 radius 1 name 0 type 0 
+atom 100 radius 1 name 0 type 0 
+atom 101 radius 1 name 0 type 0 
+atom 102 radius 1 name 0 type 0 
+atom 103 radius 1 name 0 type 0 
+atom 104 radius 1 name 0 type 0 
+atom 105 radius 1 name 0 type 0 
+atom 106 radius 1 name 0 type 0 
+atom 107 radius 1 name 0 type 0 
+atom 108 radius 1 name 0 type 0 
+atom 109 radius 1 name 0 type 0 
+atom 110 radius 1 name 0 type 0 
+atom 111 radius 1 name 0 type 0 
+atom 112 radius 1 name 0 type 0 
+atom 113 radius 1 name 0 type 0 
+atom 114 radius 1 name 0 type 0 
+atom 115 radius 1 name 0 type 0 
+atom 116 radius 1 name 0 type 0 
+atom 117 radius 1 name 0 type 0 
+atom 118 radius 1 name 0 type 0 
+atom 119 radius 1 name 0 type 0 
+atom 120 radius 1 name 0 type 0 
+atom 121 radius 1 name 0 type 0 
+atom 122 radius 1 name 0 type 0 
+atom 123 radius 1 name 0 type 0 
+atom 124 radius 1 name 0 type 0 
+atom 125 radius 1 name 0 type 0 
+atom 126 radius 1 name 0 type 0 
+atom 127 radius 1 name 0 type 0 
+atom 128 radius 1 name 0 type 0 
+atom 129 radius 1 name 0 type 0 
+atom 130 radius 1 name 0 type 0 
+atom 131 radius 1 name 0 type 0 
+atom 132 radius 1 name 0 type 0 
+atom 133 radius 1 name 0 type 0 
+atom 134 radius 1 name 0 type 0 
+atom 135 radius 1 name 0 type 0 
+atom 136 radius 1 name 0 type 0 
+atom 137 radius 1 name 0 type 0 
+atom 138 radius 1 name 0 type 0 
+atom 139 radius 1 name 0 type 0 
+atom 140 radius 1 name 0 type 0 
+atom 141 radius 1 name 0 type 0 
+atom 142 radius 1 name 0 type 0 
+atom 143 radius 1 name 0 type 0 
+atom 144 radius 1 name 0 type 0 
+atom 145 radius 1 name 0 type 0 
+atom 146 radius 1 name 0 type 0 
+atom 147 radius 1 name 0 type 0 
+atom 148 radius 1 name 0 type 0 
+atom 149 radius 1 name 0 type 0 
+atom 150 radius 1 name 0 type 0 
+atom 151 radius 1 name 0 type 0 
+atom 152 radius 1 name 0 type 0 
+atom 153 radius 1 name 0 type 0 
+atom 154 radius 1 name 0 type 0 
+atom 155 radius 1 name 0 type 0 
+atom 156 radius 1 name 0 type 0 
+atom 157 radius 1 name 0 type 0 
+atom 158 radius 1 name 0 type 0 
+atom 159 radius 1 name 0 type 0 
+atom 160 radius 1 name 0 type 0 
+atom 161 radius 1 name 0 type 0 
+atom 162 radius 1 name 0 type 0 
+atom 163 radius 1 name 0 type 0 
+atom 164 radius 1 name 0 type 0 
+atom 165 radius 1 name 0 type 0 
+atom 166 radius 1 name 0 type 0 
+atom 167 radius 1 name 0 type 0 
+atom 168 radius 1 name 0 type 0 
+atom 169 radius 1 name 0 type 0 
+atom 170 radius 1 name 0 type 0 
+atom 171 radius 1 name 0 type 0 
+atom 172 radius 1 name 0 type 0 
+atom 173 radius 1 name 0 type 0 
+atom 174 radius 1 name 0 type 0 
+atom 175 radius 1 name 0 type 0 
+atom 176 radius 1 name 0 type 0 
+atom 177 radius 1 name 0 type 0 
+atom 178 radius 1 name 0 type 0 
+atom 179 radius 1 name 0 type 0 
+atom 180 radius 1 name 0 type 0 
+atom 181 radius 1 name 0 type 0 
+atom 182 radius 1 name 0 type 0 
+atom 183 radius 1 name 0 type 0 
+atom 184 radius 1 name 0 type 0 
+atom 185 radius 1 name 0 type 0 
+atom 186 radius 1 name 0 type 0 
+atom 187 radius 1 name 0 type 0 
+atom 188 radius 1 name 0 type 0 
+atom 189 radius 1 name 0 type 0 
+atom 190 radius 1 name 0 type 0 
+atom 191 radius 1 name 0 type 0 
+atom 192 radius 1 name 0 type 0 
+atom 193 radius 1 name 0 type 0 
+atom 194 radius 1 name 0 type 0 
+atom 195 radius 1 name 0 type 0 
+atom 196 radius 1 name 0 type 0 
+atom 197 radius 1 name 0 type 0 
+atom 198 radius 1 name 0 type 0 
+atom 199 radius 1 name 0 type 0 
+atom 200 radius 1 name 1 type 1 
+atom 201 radius 1 name 1 type 1 
+atom 202 radius 1 name 1 type 1 
+atom 203 radius 1 name 1 type 1 
+atom 204 radius 1 name 1 type 1 
+atom 205 radius 1 name 1 type 1 
+atom 206 radius 1 name 1 type 1 
+atom 207 radius 1 name 1 type 1 
+atom 208 radius 1 name 1 type 1 
+atom 209 radius 1 name 1 type 1 
+atom 210 radius 1 name 1 type 1 
+atom 211 radius 1 name 1 type 1 
+atom 212 radius 1 name 1 type 1 
+atom 213 radius 1 name 1 type 1 
+atom 214 radius 1 name 1 type 1 
+atom 215 radius 1 name 1 type 1 
+atom 216 radius 1 name 1 type 1 
+atom 217 radius 1 name 1 type 1 
+atom 218 radius 1 name 1 type 1 
+atom 219 radius 1 name 1 type 1 
+atom 220 radius 1 name 1 type 1 
+atom 221 radius 1 name 1 type 1 
+atom 222 radius 1 name 1 type 1 
+atom 223 radius 1 name 1 type 1 
+atom 224 radius 1 name 1 type 1 
+atom 225 radius 1 name 1 type 1 
+atom 226 radius 1 name 1 type 1 
+atom 227 radius 1 name 1 type 1 
+atom 228 radius 1 name 1 type 1 
+atom 229 radius 1 name 1 type 1 
+atom 230 radius 1 name 1 type 1 
+atom 231 radius 1 name 1 type 1 
+atom 232 radius 1 name 1 type 1 
+atom 233 radius 1 name 1 type 1 
+atom 234 radius 1 name 1 type 1 
+atom 235 radius 1 name 1 type 1 
+atom 236 radius 1 name 1 type 1 
+atom 237 radius 1 name 1 type 1 
+atom 238 radius 1 name 1 type 1 
+atom 239 radius 1 name 1 type 1 
+atom 240 radius 1 name 1 type 1 
+atom 241 radius 1 name 1 type 1 
+atom 242 radius 1 name 1 type 1 
+atom 243 radius 1 name 1 type 1 
+atom 244 radius 1 name 1 type 1 
+atom 245 radius 1 name 1 type 1 
+atom 246 radius 1 name 1 type 1 
+atom 247 radius 1 name 1 type 1 
+atom 248 radius 1 name 1 type 1 
+atom 249 radius 1 name 1 type 1 
+atom 250 radius 1 name 1 type 1 
+atom 251 radius 1 name 1 type 1 
+atom 252 radius 1 name 1 type 1 
+atom 253 radius 1 name 1 type 1 
+atom 254 radius 1 name 1 type 1 
+atom 255 radius 1 name 1 type 1 
+atom 256 radius 1 name 1 type 1 
+atom 257 radius 1 name 1 type 1 
+atom 258 radius 1 name 1 type 1 
+atom 259 radius 1 name 1 type 1 
+atom 260 radius 1 name 1 type 1 
+atom 261 radius 1 name 1 type 1 
+atom 262 radius 1 name 1 type 1 
+atom 263 radius 1 name 1 type 1 
+atom 264 radius 1 name 1 type 1 
+atom 265 radius 1 name 1 type 1 
+atom 266 radius 1 name 1 type 1 
+atom 267 radius 1 name 1 type 1 
+atom 268 radius 1 name 1 type 1 
+atom 269 radius 1 name 1 type 1 
+atom 270 radius 1 name 1 type 1 
+atom 271 radius 1 name 1 type 1 
+atom 272 radius 1 name 1 type 1 
+atom 273 radius 1 name 1 type 1 
+atom 274 radius 1 name 1 type 1 
+atom 275 radius 1 name 1 type 1 
+atom 276 radius 1 name 1 type 1 
+atom 277 radius 1 name 1 type 1 
+atom 278 radius 1 name 1 type 1 
+atom 279 radius 1 name 1 type 1 
+atom 280 radius 1 name 1 type 1 
+atom 281 radius 1 name 1 type 1 
+atom 282 radius 1 name 1 type 1 
+atom 283 radius 1 name 1 type 1 
+atom 284 radius 1 name 1 type 1 
+atom 285 radius 1 name 1 type 1 
+atom 286 radius 1 name 1 type 1 
+atom 287 radius 1 name 1 type 1 
+atom 288 radius 1 name 1 type 1 
+atom 289 radius 1 name 1 type 1 
+atom 290 radius 1 name 1 type 1 
+atom 291 radius 1 name 1 type 1 
+atom 292 radius 1 name 1 type 1 
+atom 293 radius 1 name 1 type 1 
+atom 294 radius 1 name 1 type 1 
+atom 295 radius 1 name 1 type 1 
+atom 296 radius 1 name 1 type 1 
+atom 297 radius 1 name 1 type 1 
+atom 298 radius 1 name 1 type 1 
+atom 299 radius 1 name 1 type 1 
+atom 300 radius 1 name 1 type 1 
+atom 301 radius 1 name 1 type 1 
+atom 302 radius 1 name 1 type 1 
+atom 303 radius 1 name 1 type 1 
+atom 304 radius 1 name 1 type 1 
+atom 305 radius 1 name 1 type 1 
+atom 306 radius 1 name 1 type 1 
+atom 307 radius 1 name 1 type 1 
+atom 308 radius 1 name 1 type 1 
+atom 309 radius 1 name 1 type 1 
+atom 310 radius 1 name 1 type 1 
+atom 311 radius 1 name 1 type 1 
+atom 312 radius 1 name 1 type 1 
+atom 313 radius 1 name 1 type 1 
+atom 314 radius 1 name 1 type 1 
+atom 315 radius 1 name 1 type 1 
+atom 316 radius 1 name 1 type 1 
+atom 317 radius 1 name 1 type 1 
+atom 318 radius 1 name 1 type 1 
+atom 319 radius 1 name 1 type 1 
+atom 320 radius 1 name 1 type 1 
+atom 321 radius 1 name 1 type 1 
+atom 322 radius 1 name 1 type 1 
+atom 323 radius 1 name 1 type 1 
+atom 324 radius 1 name 1 type 1 
+atom 325 radius 1 name 1 type 1 
+atom 326 radius 1 name 1 type 1 
+atom 327 radius 1 name 1 type 1 
+atom 328 radius 1 name 1 type 1 
+atom 329 radius 1 name 1 type 1 
+atom 330 radius 1 name 1 type 1 
+atom 331 radius 1 name 1 type 1 
+atom 332 radius 1 name 1 type 1 
+atom 333 radius 1 name 1 type 1 
+atom 334 radius 1 name 1 type 1 
+atom 335 radius 1 name 1 type 1 
+atom 336 radius 1 name 1 type 1 
+atom 337 radius 1 name 1 type 1 
+atom 338 radius 1 name 1 type 1 
+atom 339 radius 1 name 1 type 1 
+atom 340 radius 1 name 1 type 1 
+atom 341 radius 1 name 1 type 1 
+atom 342 radius 1 name 1 type 1 
+atom 343 radius 1 name 1 type 1 
+atom 344 radius 1 name 1 type 1 
+atom 345 radius 1 name 1 type 1 
+atom 346 radius 1 name 1 type 1 
+atom 347 radius 1 name 1 type 1 
+atom 348 radius 1 name 1 type 1 
+atom 349 radius 1 name 1 type 1 
+atom 350 radius 1 name 1 type 1 
+atom 351 radius 1 name 1 type 1 
+atom 352 radius 1 name 1 type 1 
+atom 353 radius 1 name 1 type 1 
+atom 354 radius 1 name 1 type 1 
+atom 355 radius 1 name 1 type 1 
+atom 356 radius 1 name 1 type 1 
+atom 357 radius 1 name 1 type 1 
+atom 358 radius 1 name 1 type 1 
+atom 359 radius 1 name 1 type 1 
+atom 360 radius 1 name 1 type 1 
+atom 361 radius 1 name 1 type 1 
+atom 362 radius 1 name 1 type 1 
+atom 363 radius 1 name 1 type 1 
+atom 364 radius 1 name 1 type 1 
+atom 365 radius 1 name 1 type 1 
+atom 366 radius 1 name 1 type 1 
+atom 367 radius 1 name 1 type 1 
+atom 368 radius 1 name 1 type 1 
+atom 369 radius 1 name 1 type 1 
+atom 370 radius 1 name 1 type 1 
+atom 371 radius 1 name 1 type 1 
+atom 372 radius 1 name 1 type 1 
+atom 373 radius 1 name 1 type 1 
+atom 374 radius 1 name 1 type 1 
+atom 375 radius 1 name 1 type 1 
+atom 376 radius 1 name 1 type 1 
+atom 377 radius 1 name 1 type 1 
+atom 378 radius 1 name 1 type 1 
+atom 379 radius 1 name 1 type 1 
+atom 380 radius 1 name 1 type 1 
+atom 381 radius 1 name 1 type 1 
+atom 382 radius 1 name 1 type 1 
+atom 383 radius 1 name 1 type 1 
+atom 384 radius 1 name 1 type 1 
+atom 385 radius 1 name 1 type 1 
+atom 386 radius 1 name 1 type 1 
+atom 387 radius 1 name 1 type 1 
+atom 388 radius 1 name 1 type 1 
+atom 389 radius 1 name 1 type 1 
+atom 390 radius 1 name 1 type 1 
+atom 391 radius 1 name 1 type 1 
+atom 392 radius 1 name 1 type 1 
+atom 393 radius 1 name 1 type 1 
+atom 394 radius 1 name 1 type 1 
+atom 395 radius 1 name 1 type 1 
+atom 396 radius 1 name 1 type 1 
+atom 397 radius 1 name 1 type 1 
+atom 398 radius 1 name 1 type 1 
+atom 399 radius 1 name 1 type 1 
+atom 400 radius 1 name 1 type 1 
+atom 401 radius 1 name 1 type 1 
+atom 402 radius 1 name 1 type 1 
+atom 403 radius 1 name 1 type 1 
+atom 404 radius 1 name 1 type 1 
+atom 405 radius 1 name 1 type 1 
+atom 406 radius 1 name 1 type 1 
+atom 407 radius 1 name 1 type 1 
+atom 408 radius 1 name 1 type 1 
+atom 409 radius 1 name 1 type 1 
+atom 410 radius 1 name 1 type 1 
+atom 411 radius 1 name 1 type 1 
+atom 412 radius 1 name 1 type 1 
+atom 413 radius 1 name 1 type 1 
+atom 414 radius 1 name 1 type 1 
+atom 415 radius 1 name 1 type 1 
+atom 416 radius 1 name 1 type 1 
+atom 417 radius 1 name 1 type 1 
+atom 418 radius 1 name 1 type 1 
+atom 419 radius 1 name 1 type 1 
+atom 420 radius 1 name 1 type 1 
+atom 421 radius 1 name 1 type 1 
+atom 422 radius 1 name 1 type 1 
+atom 423 radius 1 name 1 type 1 
+atom 424 radius 1 name 1 type 1 
+atom 425 radius 1 name 1 type 1 
+atom 426 radius 1 name 1 type 1 
+atom 427 radius 1 name 1 type 1 
+atom 428 radius 1 name 1 type 1 
+atom 429 radius 1 name 1 type 1 
+atom 430 radius 1 name 1 type 1 
+atom 431 radius 1 name 1 type 1 
+atom 432 radius 1 name 1 type 1 
+atom 433 radius 1 name 1 type 1 
+atom 434 radius 1 name 1 type 1 
+atom 435 radius 1 name 1 type 1 
+atom 436 radius 1 name 1 type 1 
+atom 437 radius 1 name 1 type 1 
+atom 438 radius 1 name 1 type 1 
+atom 439 radius 1 name 1 type 1 
+atom 440 radius 1 name 1 type 1 
+atom 441 radius 1 name 1 type 1 
+atom 442 radius 1 name 1 type 1 
+atom 443 radius 1 name 1 type 1 
+atom 444 radius 1 name 1 type 1 
+atom 445 radius 1 name 1 type 1 
+atom 446 radius 1 name 1 type 1 
+atom 447 radius 1 name 1 type 1 
+atom 448 radius 1 name 1 type 1 
+atom 449 radius 1 name 1 type 1 
+atom 450 radius 1 name 1 type 1 
+atom 451 radius 1 name 1 type 1 
+atom 452 radius 1 name 1 type 1 
+atom 453 radius 1 name 1 type 1 
+atom 454 radius 1 name 1 type 1 
+atom 455 radius 1 name 1 type 1 
+atom 456 radius 1 name 1 type 1 
+atom 457 radius 1 name 1 type 1 
+atom 458 radius 1 name 1 type 1 
+atom 459 radius 1 name 1 type 1 
+atom 460 radius 1 name 1 type 1 
+atom 461 radius 1 name 1 type 1 
+atom 462 radius 1 name 1 type 1 
+atom 463 radius 1 name 1 type 1 
+atom 464 radius 1 name 1 type 1 
+atom 465 radius 1 name 1 type 1 
+atom 466 radius 1 name 1 type 1 
+atom 467 radius 1 name 1 type 1 
+atom 468 radius 1 name 1 type 1 
+atom 469 radius 1 name 1 type 1 
+atom 470 radius 1 name 1 type 1 
+atom 471 radius 1 name 1 type 1 
+atom 472 radius 1 name 1 type 1 
+atom 473 radius 1 name 1 type 1 
+atom 474 radius 1 name 1 type 1 
+atom 475 radius 1 name 1 type 1 
+atom 476 radius 1 name 1 type 1 
+atom 477 radius 1 name 1 type 1 
+atom 478 radius 1 name 1 type 1 
+atom 479 radius 1 name 1 type 1 
+atom 480 radius 1 name 1 type 1 
+atom 481 radius 1 name 1 type 1 
+atom 482 radius 1 name 1 type 1 
+atom 483 radius 1 name 1 type 1 
+atom 484 radius 1 name 1 type 1 
+atom 485 radius 1 name 1 type 1 
+atom 486 radius 1 name 1 type 1 
+atom 487 radius 1 name 1 type 1 
+atom 488 radius 1 name 1 type 1 
+atom 489 radius 1 name 1 type 1 
+atom 490 radius 1 name 1 type 1 
+atom 491 radius 1 name 1 type 1 
+atom 492 radius 1 name 1 type 1 
+atom 493 radius 1 name 1 type 1 
+atom 494 radius 1 name 1 type 1 
+atom 495 radius 1 name 1 type 1 
+atom 496 radius 1 name 1 type 1 
+atom 497 radius 1 name 1 type 1 
+atom 498 radius 1 name 1 type 1 
+atom 499 radius 1 name 1 type 1 
+atom 500 radius 1 name 1 type 1 
+atom 501 radius 1 name 1 type 1 
+atom 502 radius 1 name 1 type 1 
+atom 503 radius 1 name 1 type 1 
+atom 504 radius 1 name 1 type 1 
+atom 505 radius 1 name 1 type 1 
+atom 506 radius 1 name 1 type 1 
+atom 507 radius 1 name 1 type 1 
+atom 508 radius 1 name 1 type 1 
+atom 509 radius 1 name 1 type 1 
+atom 510 radius 1 name 1 type 1 
+atom 511 radius 1 name 1 type 1 
+atom 512 radius 1 name 1 type 1 
+atom 513 radius 1 name 1 type 1 
+atom 514 radius 1 name 1 type 1 
+atom 515 radius 1 name 1 type 1 
+atom 516 radius 1 name 1 type 1 
+atom 517 radius 1 name 1 type 1 
+atom 518 radius 1 name 1 type 1 
+atom 519 radius 1 name 1 type 1 
+atom 520 radius 1 name 1 type 1 
+atom 521 radius 1 name 1 type 1 
+atom 522 radius 1 name 1 type 1 
+atom 523 radius 1 name 1 type 1 
+atom 524 radius 1 name 1 type 1 
+atom 525 radius 1 name 1 type 1 
+atom 526 radius 1 name 1 type 1 
+atom 527 radius 1 name 1 type 1 
+atom 528 radius 1 name 1 type 1 
+atom 529 radius 1 name 1 type 1 
+atom 530 radius 1 name 1 type 1 
+atom 531 radius 1 name 1 type 1 
+atom 532 radius 1 name 1 type 1 
+atom 533 radius 1 name 1 type 1 
+atom 534 radius 1 name 1 type 1 
+atom 535 radius 1 name 1 type 1 
+atom 536 radius 1 name 1 type 1 
+atom 537 radius 1 name 1 type 1 
+atom 538 radius 1 name 1 type 1 
+atom 539 radius 1 name 1 type 1 
+atom 540 radius 1 name 1 type 1 
+atom 541 radius 1 name 1 type 1 
+atom 542 radius 1 name 1 type 1 
+atom 543 radius 1 name 1 type 1 
+atom 544 radius 1 name 1 type 1 
+atom 545 radius 1 name 1 type 1 
+atom 546 radius 1 name 1 type 1 
+atom 547 radius 1 name 1 type 1 
+atom 548 radius 1 name 1 type 1 
+atom 549 radius 1 name 1 type 1 
+atom 550 radius 1 name 1 type 1 
+atom 551 radius 1 name 1 type 1 
+atom 552 radius 1 name 1 type 1 
+atom 553 radius 1 name 1 type 1 
+atom 554 radius 1 name 1 type 1 
+atom 555 radius 1 name 1 type 1 
+atom 556 radius 1 name 1 type 1 
+atom 557 radius 1 name 1 type 1 
+atom 558 radius 1 name 1 type 1 
+atom 559 radius 1 name 1 type 1 
+atom 560 radius 1 name 1 type 1 
+atom 561 radius 1 name 1 type 1 
+atom 562 radius 1 name 1 type 1 
+atom 563 radius 1 name 1 type 1 
+atom 564 radius 1 name 1 type 1 
+atom 565 radius 1 name 1 type 1 
+atom 566 radius 1 name 1 type 1 
+atom 567 radius 1 name 1 type 1 
+atom 568 radius 1 name 1 type 1 
+atom 569 radius 1 name 1 type 1 
+atom 570 radius 1 name 1 type 1 
+atom 571 radius 1 name 1 type 1 
+atom 572 radius 1 name 1 type 1 
+atom 573 radius 1 name 1 type 1 
+atom 574 radius 1 name 1 type 1 
+atom 575 radius 1 name 1 type 1 
+atom 576 radius 1 name 1 type 1 
+atom 577 radius 1 name 1 type 1 
+atom 578 radius 1 name 1 type 1 
+atom 579 radius 1 name 1 type 1 
+atom 580 radius 1 name 1 type 1 
+atom 581 radius 1 name 1 type 1 
+atom 582 radius 1 name 1 type 1 
+atom 583 radius 1 name 1 type 1 
+atom 584 radius 1 name 1 type 1 
+atom 585 radius 1 name 1 type 1 
+atom 586 radius 1 name 1 type 1 
+atom 587 radius 1 name 1 type 1 
+atom 588 radius 1 name 1 type 1 
+atom 589 radius 1 name 1 type 1 
+atom 590 radius 1 name 1 type 1 
+atom 591 radius 1 name 1 type 1 
+atom 592 radius 1 name 1 type 1 
+atom 593 radius 1 name 1 type 1 
+atom 594 radius 1 name 1 type 1 
+atom 595 radius 1 name 1 type 1 
+atom 596 radius 1 name 1 type 1 
+atom 597 radius 1 name 1 type 1 
+atom 598 radius 1 name 1 type 1 
+atom 599 radius 1 name 1 type 1 
+atom 600 radius 1 name 1 type 1 
+atom 601 radius 1 name 1 type 1 
+atom 602 radius 1 name 1 type 1 
+atom 603 radius 1 name 1 type 1 
+atom 604 radius 1 name 1 type 1 
+atom 605 radius 1 name 1 type 1 
+atom 606 radius 1 name 1 type 1 
+atom 607 radius 1 name 1 type 1 
+atom 608 radius 1 name 1 type 1 
+atom 609 radius 1 name 1 type 1 
+atom 610 radius 1 name 1 type 1 
+atom 611 radius 1 name 1 type 1 
+atom 612 radius 1 name 1 type 1 
+atom 613 radius 1 name 1 type 1 
+atom 614 radius 1 name 1 type 1 
+atom 615 radius 1 name 1 type 1 
+atom 616 radius 1 name 1 type 1 
+atom 617 radius 1 name 1 type 1 
+atom 618 radius 1 name 1 type 1 
+atom 619 radius 1 name 1 type 1 
+atom 620 radius 1 name 1 type 1 
+atom 621 radius 1 name 1 type 1 
+atom 622 radius 1 name 1 type 1 
+atom 623 radius 1 name 1 type 1 
+atom 624 radius 1 name 1 type 1 
+atom 625 radius 1 name 1 type 1 
+atom 626 radius 1 name 1 type 1 
+atom 627 radius 1 name 1 type 1 
+atom 628 radius 1 name 1 type 1 
+atom 629 radius 1 name 1 type 1 
+atom 630 radius 1 name 1 type 1 
+atom 631 radius 1 name 1 type 1 
+atom 632 radius 1 name 1 type 1 
+atom 633 radius 1 name 1 type 1 
+atom 634 radius 1 name 1 type 1 
+atom 635 radius 1 name 1 type 1 
+atom 636 radius 1 name 1 type 1 
+atom 637 radius 1 name 1 type 1 
+atom 638 radius 1 name 1 type 1 
+atom 639 radius 1 name 1 type 1 
+atom 640 radius 1 name 1 type 1 
+atom 641 radius 1 name 1 type 1 
+atom 642 radius 1 name 1 type 1 
+atom 643 radius 1 name 1 type 1 
+atom 644 radius 1 name 1 type 1 
+atom 645 radius 1 name 1 type 1 
+atom 646 radius 1 name 1 type 1 
+atom 647 radius 1 name 1 type 1 
+atom 648 radius 1 name 1 type 1 
+atom 649 radius 1 name 1 type 1 
+atom 650 radius 1 name 1 type 1 
+atom 651 radius 1 name 1 type 1 
+atom 652 radius 1 name 1 type 1 
+atom 653 radius 1 name 1 type 1 
+atom 654 radius 1 name 1 type 1 
+atom 655 radius 1 name 1 type 1 
+atom 656 radius 1 name 1 type 1 
+atom 657 radius 1 name 1 type 1 
+atom 658 radius 1 name 1 type 1 
+atom 659 radius 1 name 1 type 1 
+atom 660 radius 1 name 1 type 1 
+atom 661 radius 1 name 1 type 1 
+atom 662 radius 1 name 1 type 1 
+atom 663 radius 1 name 1 type 1 
+atom 664 radius 1 name 1 type 1 
+atom 665 radius 1 name 1 type 1 
+atom 666 radius 1 name 1 type 1 
+atom 667 radius 1 name 1 type 1 
+atom 668 radius 1 name 1 type 1 
+atom 669 radius 1 name 1 type 1 
+atom 670 radius 1 name 1 type 1 
+atom 671 radius 1 name 1 type 1 
+atom 672 radius 1 name 1 type 1 
+atom 673 radius 1 name 1 type 1 
+atom 674 radius 1 name 1 type 1 
+atom 675 radius 1 name 1 type 1 
+atom 676 radius 1 name 1 type 1 
+atom 677 radius 1 name 1 type 1 
+atom 678 radius 1 name 1 type 1 
+atom 679 radius 1 name 1 type 1 
+atom 680 radius 1 name 1 type 1 
+atom 681 radius 1 name 1 type 1 
+atom 682 radius 1 name 1 type 1 
+atom 683 radius 1 name 1 type 1 
+atom 684 radius 1 name 1 type 1 
+atom 685 radius 1 name 1 type 1 
+atom 686 radius 1 name 1 type 1 
+atom 687 radius 1 name 1 type 1 
+atom 688 radius 1 name 1 type 1 
+atom 689 radius 1 name 1 type 1 
+atom 690 radius 1 name 1 type 1 
+atom 691 radius 1 name 1 type 1 
+atom 692 radius 1 name 1 type 1 
+atom 693 radius 1 name 1 type 1 
+atom 694 radius 1 name 1 type 1 
+atom 695 radius 1 name 1 type 1 
+atom 696 radius 1 name 1 type 1 
+atom 697 radius 1 name 1 type 1 
+atom 698 radius 1 name 1 type 1 
+atom 699 radius 1 name 1 type 1 
+atom 700 radius 1 name 1 type 1 
+atom 701 radius 1 name 1 type 1 
+atom 702 radius 1 name 1 type 1 
+atom 703 radius 1 name 1 type 1 
+atom 704 radius 1 name 1 type 1 
+atom 705 radius 1 name 1 type 1 
+atom 706 radius 1 name 1 type 1 
+atom 707 radius 1 name 1 type 1 
+atom 708 radius 1 name 1 type 1 
+atom 709 radius 1 name 1 type 1 
+atom 710 radius 1 name 1 type 1 
+atom 711 radius 1 name 1 type 1 
+atom 712 radius 1 name 1 type 1 
+atom 713 radius 1 name 1 type 1 
+atom 714 radius 1 name 1 type 1 
+atom 715 radius 1 name 1 type 1 
+atom 716 radius 1 name 1 type 1 
+atom 717 radius 1 name 1 type 1 
+atom 718 radius 1 name 1 type 1 
+atom 719 radius 1 name 1 type 1 
+atom 720 radius 1 name 1 type 1 
+atom 721 radius 1 name 1 type 1 
+atom 722 radius 1 name 1 type 1 
+atom 723 radius 1 name 1 type 1 
+atom 724 radius 1 name 1 type 1 
+atom 725 radius 1 name 1 type 1 
+atom 726 radius 1 name 1 type 1 
+atom 727 radius 1 name 1 type 1 
+atom 728 radius 1 name 1 type 1 
+atom 729 radius 1 name 1 type 1 
+atom 730 radius 1 name 1 type 1 
+atom 731 radius 1 name 1 type 1 
+atom 732 radius 1 name 1 type 1 
+atom 733 radius 1 name 1 type 1 
+atom 734 radius 1 name 1 type 1 
+atom 735 radius 1 name 1 type 1 
+atom 736 radius 1 name 1 type 1 
+atom 737 radius 1 name 1 type 1 
+atom 738 radius 1 name 1 type 1 
+atom 739 radius 1 name 1 type 1 
+atom 740 radius 1 name 1 type 1 
+atom 741 radius 1 name 1 type 1 
+atom 742 radius 1 name 1 type 1 
+atom 743 radius 1 name 1 type 1 
+atom 744 radius 1 name 1 type 1 
+atom 745 radius 1 name 1 type 1 
+atom 746 radius 1 name 1 type 1 
+atom 747 radius 1 name 1 type 1 
+atom 748 radius 1 name 1 type 1 
+atom 749 radius 1 name 1 type 1 
+atom 750 radius 1 name 1 type 1 
+atom 751 radius 1 name 1 type 1 
+atom 752 radius 1 name 1 type 1 
+atom 753 radius 1 name 1 type 1 
+atom 754 radius 1 name 1 type 1 
+atom 755 radius 1 name 1 type 1 
+atom 756 radius 1 name 1 type 1 
+atom 757 radius 1 name 1 type 1 
+atom 758 radius 1 name 1 type 1 
+atom 759 radius 1 name 1 type 1 
+atom 760 radius 1 name 1 type 1 
+atom 761 radius 1 name 1 type 1 
+atom 762 radius 1 name 1 type 1 
+atom 763 radius 1 name 1 type 1 
+atom 764 radius 1 name 1 type 1 
+atom 765 radius 1 name 1 type 1 
+atom 766 radius 1 name 1 type 1 
+atom 767 radius 1 name 1 type 1 
+atom 768 radius 1 name 1 type 1 
+atom 769 radius 1 name 1 type 1 
+atom 770 radius 1 name 1 type 1 
+atom 771 radius 1 name 1 type 1 
+atom 772 radius 1 name 1 type 1 
+atom 773 radius 1 name 1 type 1 
+atom 774 radius 1 name 1 type 1 
+atom 775 radius 1 name 1 type 1 
+atom 776 radius 1 name 1 type 1 
+atom 777 radius 1 name 1 type 1 
+atom 778 radius 1 name 1 type 1 
+atom 779 radius 1 name 1 type 1 
+atom 780 radius 1 name 1 type 1 
+atom 781 radius 1 name 1 type 1 
+atom 782 radius 1 name 1 type 1 
+atom 783 radius 1 name 1 type 1 
+atom 784 radius 1 name 1 type 1 
+atom 785 radius 1 name 1 type 1 
+atom 786 radius 1 name 1 type 1 
+atom 787 radius 1 name 1 type 1 
+atom 788 radius 1 name 1 type 1 
+atom 789 radius 1 name 1 type 1 
+atom 790 radius 1 name 1 type 1 
+atom 791 radius 1 name 1 type 1 
+atom 792 radius 1 name 1 type 1 
+atom 793 radius 1 name 1 type 1 
+atom 794 radius 1 name 1 type 1 
+atom 795 radius 1 name 1 type 1 
+atom 796 radius 1 name 1 type 1 
+atom 797 radius 1 name 1 type 1 
+atom 798 radius 1 name 1 type 1 
+atom 799 radius 1 name 1 type 1 
+atom 800 radius 1 name 1 type 1 
+atom 801 radius 1 name 1 type 1 
+atom 802 radius 1 name 1 type 1 
+atom 803 radius 1 name 1 type 1 
+atom 804 radius 1 name 1 type 1 
+atom 805 radius 1 name 1 type 1 
+atom 806 radius 1 name 1 type 1 
+atom 807 radius 1 name 1 type 1 
+atom 808 radius 1 name 1 type 1 
+atom 809 radius 1 name 1 type 1 
+atom 810 radius 1 name 1 type 1 
+atom 811 radius 1 name 1 type 1 
+atom 812 radius 1 name 1 type 1 
+atom 813 radius 1 name 1 type 1 
+atom 814 radius 1 name 1 type 1 
+atom 815 radius 1 name 1 type 1 
+atom 816 radius 1 name 1 type 1 
+atom 817 radius 1 name 1 type 1 
+atom 818 radius 1 name 1 type 1 
+atom 819 radius 1 name 1 type 1 
+atom 820 radius 1 name 1 type 1 
+atom 821 radius 1 name 1 type 1 
+atom 822 radius 1 name 1 type 1 
+atom 823 radius 1 name 1 type 1 
+atom 824 radius 1 name 1 type 1 
+atom 825 radius 1 name 1 type 1 
+atom 826 radius 1 name 1 type 1 
+atom 827 radius 1 name 1 type 1 
+atom 828 radius 1 name 1 type 1 
+atom 829 radius 1 name 1 type 1 
+atom 830 radius 1 name 1 type 1 
+atom 831 radius 1 name 1 type 1 
+atom 832 radius 1 name 1 type 1 
+atom 833 radius 1 name 1 type 1 
+atom 834 radius 1 name 1 type 1 
+atom 835 radius 1 name 1 type 1 
+atom 836 radius 1 name 1 type 1 
+atom 837 radius 1 name 1 type 1 
+atom 838 radius 1 name 1 type 1 
+atom 839 radius 1 name 1 type 1 
+atom 840 radius 1 name 1 type 1 
+atom 841 radius 1 name 1 type 1 
+atom 842 radius 1 name 1 type 1 
+atom 843 radius 1 name 1 type 1 
+atom 844 radius 1 name 1 type 1 
+atom 845 radius 1 name 1 type 1 
+atom 846 radius 1 name 1 type 1 
+atom 847 radius 1 name 1 type 1 
+atom 848 radius 1 name 1 type 1 
+atom 849 radius 1 name 1 type 1 
+atom 850 radius 1 name 1 type 1 
+atom 851 radius 1 name 1 type 1 
+atom 852 radius 1 name 1 type 1 
+atom 853 radius 1 name 1 type 1 
+atom 854 radius 1 name 1 type 1 
+atom 855 radius 1 name 1 type 1 
+atom 856 radius 1 name 1 type 1 
+atom 857 radius 1 name 1 type 1 
+atom 858 radius 1 name 1 type 1 
+atom 859 radius 1 name 1 type 1 
+atom 860 radius 1 name 1 type 1 
+atom 861 radius 1 name 1 type 1 
+atom 862 radius 1 name 1 type 1 
+atom 863 radius 1 name 1 type 1 
+atom 864 radius 1 name 1 type 1 
+atom 865 radius 1 name 1 type 1 
+atom 866 radius 1 name 1 type 1 
+atom 867 radius 1 name 1 type 1 
+atom 868 radius 1 name 1 type 1 
+atom 869 radius 1 name 1 type 1 
+atom 870 radius 1 name 1 type 1 
+atom 871 radius 1 name 1 type 1 
+atom 872 radius 1 name 1 type 1 
+atom 873 radius 1 name 1 type 1 
+atom 874 radius 1 name 1 type 1 
+atom 875 radius 1 name 1 type 1 
+atom 876 radius 1 name 1 type 1 
+atom 877 radius 1 name 1 type 1 
+atom 878 radius 1 name 1 type 1 
+atom 879 radius 1 name 1 type 1 
+atom 880 radius 1 name 1 type 1 
+atom 881 radius 1 name 1 type 1 
+atom 882 radius 1 name 1 type 1 
+atom 883 radius 1 name 1 type 1 
+atom 884 radius 1 name 1 type 1 
+atom 885 radius 1 name 1 type 1 
+atom 886 radius 1 name 1 type 1 
+atom 887 radius 1 name 1 type 1 
+atom 888 radius 1 name 1 type 1 
+atom 889 radius 1 name 1 type 1 
+atom 890 radius 1 name 1 type 1 
+atom 891 radius 1 name 1 type 1 
+atom 892 radius 1 name 1 type 1 
+atom 893 radius 1 name 1 type 1 
+atom 894 radius 1 name 1 type 1 
+atom 895 radius 1 name 1 type 1 
+atom 896 radius 1 name 1 type 1 
+atom 897 radius 1 name 1 type 1 
+atom 898 radius 1 name 1 type 1 
+atom 899 radius 1 name 1 type 1 
+atom 900 radius 1 name 1 type 1 
+atom 901 radius 1 name 1 type 1 
+atom 902 radius 1 name 1 type 1 
+atom 903 radius 1 name 1 type 1 
+atom 904 radius 1 name 1 type 1 
+atom 905 radius 1 name 1 type 1 
+atom 906 radius 1 name 1 type 1 
+atom 907 radius 1 name 1 type 1 
+atom 908 radius 1 name 1 type 1 
+atom 909 radius 1 name 1 type 1 
+atom 910 radius 1 name 1 type 1 
+atom 911 radius 1 name 1 type 1 
+atom 912 radius 1 name 1 type 1 
+atom 913 radius 1 name 1 type 1 
+atom 914 radius 1 name 1 type 1 
+atom 915 radius 1 name 1 type 1 
+atom 916 radius 1 name 1 type 1 
+atom 917 radius 1 name 1 type 1 
+atom 918 radius 1 name 1 type 1 
+atom 919 radius 1 name 1 type 1 
+atom 920 radius 1 name 1 type 1 
+atom 921 radius 1 name 1 type 1 
+atom 922 radius 1 name 1 type 1 
+atom 923 radius 1 name 1 type 1 
+atom 924 radius 1 name 1 type 1 
+atom 925 radius 1 name 1 type 1 
+atom 926 radius 1 name 1 type 1 
+atom 927 radius 1 name 1 type 1 
+atom 928 radius 1 name 1 type 1 
+atom 929 radius 1 name 1 type 1 
+atom 930 radius 1 name 1 type 1 
+atom 931 radius 1 name 1 type 1 
+atom 932 radius 1 name 1 type 1 
+atom 933 radius 1 name 1 type 1 
+atom 934 radius 1 name 1 type 1 
+atom 935 radius 1 name 1 type 1 
+atom 936 radius 1 name 1 type 1 
+atom 937 radius 1 name 1 type 1 
+atom 938 radius 1 name 1 type 1 
+atom 939 radius 1 name 1 type 1 
+atom 940 radius 1 name 1 type 1 
+atom 941 radius 1 name 1 type 1 
+atom 942 radius 1 name 1 type 1 
+atom 943 radius 1 name 1 type 1 
+atom 944 radius 1 name 1 type 1 
+atom 945 radius 1 name 1 type 1 
+atom 946 radius 1 name 1 type 1 
+atom 947 radius 1 name 1 type 1 
+atom 948 radius 1 name 1 type 1 
+atom 949 radius 1 name 1 type 1 
+atom 950 radius 1 name 1 type 1 
+atom 951 radius 1 name 1 type 1 
+atom 952 radius 1 name 1 type 1 
+atom 953 radius 1 name 1 type 1 
+atom 954 radius 1 name 1 type 1 
+atom 955 radius 1 name 1 type 1 
+atom 956 radius 1 name 1 type 1 
+atom 957 radius 1 name 1 type 1 
+atom 958 radius 1 name 1 type 1 
+atom 959 radius 1 name 1 type 1 
+atom 960 radius 1 name 1 type 1 
+atom 961 radius 1 name 1 type 1 
+atom 962 radius 1 name 1 type 1 
+atom 963 radius 1 name 1 type 1 
+atom 964 radius 1 name 1 type 1 
+atom 965 radius 1 name 1 type 1 
+atom 966 radius 1 name 1 type 1 
+atom 967 radius 1 name 1 type 1 
+atom 968 radius 1 name 1 type 1 
+atom 969 radius 1 name 1 type 1 
+atom 970 radius 1 name 1 type 1 
+atom 971 radius 1 name 1 type 1 
+atom 972 radius 1 name 1 type 1 
+atom 973 radius 1 name 1 type 1 
+atom 974 radius 1 name 1 type 1 
+atom 975 radius 1 name 1 type 1 
+atom 976 radius 1 name 1 type 1 
+atom 977 radius 1 name 1 type 1 
+atom 978 radius 1 name 1 type 1 
+atom 979 radius 1 name 1 type 1 
+atom 980 radius 1 name 1 type 1 
+atom 981 radius 1 name 1 type 1 
+atom 982 radius 1 name 1 type 1 
+atom 983 radius 1 name 1 type 1 
+atom 984 radius 1 name 1 type 1 
+atom 985 radius 1 name 1 type 1 
+atom 986 radius 1 name 1 type 1 
+atom 987 radius 1 name 1 type 1 
+atom 988 radius 1 name 1 type 1 
+atom 989 radius 1 name 1 type 1 
+atom 990 radius 1 name 1 type 1 
+atom 991 radius 1 name 1 type 1 
+atom 992 radius 1 name 1 type 1 
+atom 993 radius 1 name 1 type 1 
+atom 994 radius 1 name 1 type 1 
+atom 995 radius 1 name 1 type 1 
+atom 996 radius 1 name 1 type 1 
+atom 997 radius 1 name 1 type 1 
+atom 998 radius 1 name 1 type 1 
+atom 999 radius 1 name 1 type 1 
+
+timestep indexed
+0 13.341316322254585 5.7784852687498764 5.674162669134619
+1 8.777973939752556 7.786695610782504 2.1077538489650305
+2 12.34675318844532 7.961126231975289 13.496269736301677
+3 10.74695086662295 10.142620587071326 13.848164892844764
+4 9.618102280385596 5.627395152445171 11.726782071495135
+5 12.110694980324386 13.558679263763114 9.909342373564897
+6 7.615477943521606 8.564701615289456 7.879726953188516
+7 10.955978450525619 3.78870493421285 11.428229205659429
+8 9.088621081192581 12.467954275723084 7.4241862290874625
+9 11.897367123435775 13.96873472926796 10.496165574651377
+10 4.416448526304197 12.971382048541988 9.948616555127321
+11 10.51311893231487 9.132475561349905 3.756034367524999
+12 12.911969348441254 6.772354324472514 10.433725222938552
+13 11.459561946090943 2.214811965358692 10.484431363883152
+14 7.996776519267703 5.276699847002826 8.711078418526567
+15 4.390015897154119 5.044571278612222 7.050319781647136
+16 11.611810908987536 7.591104923778097 7.384474773711967
+17 3.4794273125733466 4.686477822030243 9.852403067537871
+18 4.66434011085328 9.699615291566428 9.431079039207509
+19 7.70628549004312 5.345268125047639 9.516923100732443
+20 3.194767969041223 5.787796736730377 3.088066422246675
+21 8.363774549982136 6.128321340811052 12.152118729471377
+22 3.479037318889606 8.08943293831622 10.909384869957929
+23 8.63192968244623 2.5843012465395 12.054178875333065
+24 4.670526849374708 11.796963550608975 11.025628426245284
+25 2.798065235342821 9.385378323166885 13.775912619763467
+26 9.00075034927419 12.74978716765566 7.54718341398609
+27 3.023281901055377 8.461898218097767 8.379367408436385
+28 12.905962752339503 9.538813085267272 6.4179448034834845
+29 7.266958859976441 13.170196873687313 12.611535817221148
+30 6.564645513866786 5.278900753845852 9.651416903739612
+31 11.436905182035156 13.428081208853122 8.047092017941779
+32 4.546690397560675 13.893186981195306 6.46869478803997
+33 12.692460005363664 10.397551127516143 9.092837506640493
+34 13.129316589805008 7.301207621919815 13.853058876931359
+35 3.43385264149071 2.4736853069970315 3.9540688930343992
+36 13.660758989593882 12.130101837574298 10.084691255978303
+37 3.9847085685995665 11.644758558572006 12.9212770003093
+38 8.921163045169214 10.562909572435453 9.332109792445879
+39 6.485713219244701 7.438414710886095 6.770937774685566
+40 11.635143218395198 6.385704168739383 2.786803551146293
+41 13.02473648768387 13.18269106061935 10.536990257313171
+42 2.8207342823435475 9.547009972445812 10.513667398279887
+43 2.328280988942195 13.452614587952183 13.947123321504366
+44 6.517946316877493 10.364614956016812 8.843704683534842
+45 3.5461200678071463 11.068401293074611 2.6869440859969087
+46 4.518498983918637 5.168534595574401 6.8581078743080575
+47 8.28991614636602 13.350319433153166 13.231971415418402
+48 6.777734758851681 4.51817581581177 5.698646885539025
+49 13.010501218485198 12.486482050725447 10.5932689252305
+50 13.625056527759691 9.033999186382829 10.70962054975329
+51 9.424637365228595 3.9405856227201115 13.08135392380718
+52 10.713756382357193 2.3781363079036706 5.689695395930636
+53 2.9161742607944334 6.345501930048819 2.1517778951960826
+54 8.865903212849531 10.383139995183413 10.71086019127389
+55 11.137078535568751 2.956159486093261 12.60303823209188
+56 3.9575131744243097 7.873044930725206 2.262567630028264
+57 12.015950933742001 10.194788992924686 5.975867949436638
+58 10.703152983325204 9.632095818334234 11.320432831348064
+59 7.823700858645937 13.273170630365847 9.145531841757203
+60 13.684546212236999 7.802062550211539 11.9050481022254
+61 10.774000781021797 10.610735806572023 13.69352623293699
+62 11.343231070004485 9.74279835438082 8.761775839792367
+63 13.765064317973428 5.517633541390496 5.242746421711866
+64 4.502884514545791 12.71848224693131 9.645326400772625
+65 8.056323460823922 6.082503176278914 8.607036552064617
+66 12.828206408161636 4.979946237763622 2.839599273724012
+67 7.0212433455748435 13.355922100727671 10.97583806928233
+68 9.97801244631435 4.124013610140903 13.038677283734138
+69 12.666202422069606 13.460982854297466 13.288560496584298
+70 7.1409269051262605 3.7451728936857664 5.41246547969667
+71 11.292708354756439 3.519662845975905 13.869734974435714
+72 6.170053546884295 8.826024192184493 4.847002363837928
+73 6.771854833138912 4.800977682383317 4.135926466018383
+74 6.544508974641964 13.909428389225166 5.463550236417941
+75 2.6211632389942694 7.619308232374025 6.759191628895119
+76 8.426158359132875 5.588120537044507 12.873692814640064
+77 7.56944419916681 7.311369728127643 9.135866967732376
+78 8.338233658003494 12.803606217376567 9.414056922160622
+79 5.7149912083364 3.1220197041307047 5.615733837910897
+80 11.675349275726632 5.20181119752414 3.5291082852539004
+81 5.078969226027097 2.6035571422224852 2.6350065643164724
+82 10.527417894569746 5.275278812004788 10.36740263536481
+83 13.178186305819407 3.611159654681106 5.458234903738079
+84 3.6407350378040513 6.1612177650506785 12.312041544358202
+85 11.844882877317282 5.371457989552723 3.3681090983884125
+86 8.10904476336789 8.05754761997579 2.935271885098749
+87 9.32235567589075 6.3237406743343545 7.8203067127106065
+88 7.73286895149606 2.4906500639993028 12.852045697909555
+89 5.966926209589712 9.628280688047269 9.73969767818992
+90 8.095976025354387 6.104881865863383 7.972785872528643
+91 4.6736936571407295 10.753074398363264 8.898360118730638
+92 12.104673580157009 2.234950872371722 5.293551390524749
+93 7.611843293239135 13.756571404980598 2.964853834840819
+94 10.098926030987272 5.8781889281621496 7.48497461371859
+95 8.304714602344095 2.4747767174322246 12.219026388026103
+96 5.621559634708505 10.764185251664284 9.548008406990645
+97 11.404787755212784 9.347067929596234 3.4753977400020326
+98 8.497019428729878 11.521601282530536 7.890918921311178
+99 11.727835911705135 2.1284768047786655 3.971965391146317
+100 7.5324392512966085 4.883673139389094 2.893127102184038
+101 3.594068702270409 11.562405894375157 5.832480517803001
+102 2.8916922762781803 13.110923315755503 8.334749864440862
+103 12.843329357496016 11.310937879187371 9.63156844770028
+104 12.774041495682297 13.694321070057097 4.149207677712059
+105 3.5608500333716218 6.466094823632808 2.227574261010278
+106 4.544673133232198 10.540907001211625 4.635001436546331
+107 2.9912924021308815 2.9602488882453515 11.157045828668668
+108 2.139043403217654 5.4934211550785665 12.17254115139189
+109 12.889593512397248 2.644880329550355 3.906470979193141
+110 11.38070606442987 9.444943633438346 13.090869356241996
+111 2.2805763353178126 8.037507428508997 9.878302881686816
+112 13.340516556177027 13.94258083172763 4.562034083940491
+113 10.646335976705481 5.432318973665328 7.93615605296205
+114 4.658662768640541 8.06210521727605 4.711692105056375
+115 9.781320311514094 3.5510168569995506 11.518000132761644
+116 7.3273497957137455 7.8983381245941855 11.044822679311533
+117 7.303476890736025 8.972300142524782 13.680668835339432
+118 8.689687817327627 3.713694565700135 9.312754932887662
+119 9.496569723691351 9.122859584125095 6.676886840161232
+120 5.5401100297118155 9.634820808676018 7.461386367933753
+121 12.120496477564108 4.537778469786481 2.221273363102655
+122 12.066635685562254 11.270605461184736 5.646006391574681
+123 7.961734282262762 12.051721957347764 11.529151354943368
+124 13.515349135356454 7.657259612780917 13.468828132802809
+125 8.892589290406466 8.460052538908725 12.616120097643769
+126 12.536393682701178 10.675310160893044 6.471941040140409
+127 7.254802393723089 10.386985215973906 5.1865939404894785
+128 10.95026995421031 9.715368568953362 3.7532932483613126
+129 4.192358883488449 4.773654007003873 2.2726259396908373
+130 6.859699581264267 13.298583183802998 9.703454794445758
+131 3.0003907817992563 7.343061213343939 10.457749020054061
+132 2.561306021682762 11.764771433181446 9.652595147058499
+133 6.872399979296232 12.192387470254117 3.0333323557692573
+134 4.028206156206691 5.610894471710784 12.147808436315636
+135 9.425342976366924 7.081082006304679 10.587720425862335
+136 4.686766384153865 6.6802011034713304 10.73793139195021
+137 2.878148812047449 4.620756198728358 5.1001925410669955
+138 3.801354916299715 2.057641188100629 10.595511035990517
+139 6.971267075091704 9.587332218674469 11.147980551614166
+140 8.661209317434707 9.81681404293637 13.548324245302986
+141 11.898057814222678 4.7397896520027825 6.5793908591206165
+142 9.201039961275209 9.837358230345034 12.42253003606848
+143 10.105561974230433 3.3061128280861367 2.943775958585406
+144 12.826257934986778 3.2825715633961856 5.629380123952356
+145 13.901773668917766 4.1789130229505185 5.820126590020857
+146 10.942172466230016 11.858171302630991 8.951756344130482
+147 10.99141471745212 4.572326183723019 6.999740930461283
+148 6.208900930312062 6.931968551683951 4.468090233345809
+149 8.232240032239144 5.930159532333182 8.650785205104187
+150 3.659214101752351 5.082281016043413 3.675415762568278
+151 8.435064486073601 4.302481487632228 10.393827331228454
+152 13.72263262346737 8.979332344512185 2.7689649909668015
+153 6.0559088998797055 6.747506298892649 9.815803219212322
+154 5.371492116627623 3.6726039255869845 3.0645192381254773
+155 9.438907100288262 5.6515148836007825 8.064387476530637
+156 8.467147094212509 2.5215411734844557 5.9910041897626325
+157 12.790075711747976 4.116036800951113 10.158068171141725
+158 10.482886254196195 4.288578972319144 10.05468659073938
+159 10.579080699660462 9.671501418293682 13.951269453883391
+160 6.67823399993736 7.967717086362966 9.750438513758018
+161 11.794695222832312 11.787683843564967 9.277619304967185
+162 3.8197579244054296 8.695763595191353 7.066558006130791
+163 3.6569052539958724 3.042902250764042 11.743986200938576
+164 11.642095784208172 11.848885873186559 12.832260255251185
+165 3.757166265677387 10.221574122692004 12.24672192216449
+166 3.837197079719227 12.280532795313857 2.9314136436368177
+167 9.040948899279849 7.7454907302293545 11.994882555934133
+168 6.510496609675457 3.2466320137863525 6.263392983658111
+169 12.281550848604326 5.571952447070058 12.607903554206683
+170 5.787854781290088 7.7325494067070615 8.233573388031568
+171 2.114796506278643 12.277071010559117 8.60163205338317
+172 11.757047866553991 6.485698250619218 9.567414375972325
+173 9.183207051656073 7.8818053514686515 5.922014473502632
+174 13.199693196030939 13.186270612619754 4.322820593065371
+175 8.806163400728916 6.251356660080688 12.945603367438906
+176 3.614644962606331 11.608574219325295 2.795644582419342
+177 13.043258986259142 9.101819071835667 2.4098834179735142
+178 6.918892317518456 9.294393564168498 4.22579204945003
+179 12.212048120809277 11.540855089551064 2.940066284990129
+180 10.466939344517595 8.41402970955734 6.198571461764564
+181 8.072629339209165 4.425345202699613 11.356081128445403
+182 8.193385284457026 9.3094113320183 5.979937521386539
+183 6.421596763978656 7.511915017911285 2.9125321916335976
+184 11.01209198970157 4.690559396248032 6.947408704402172
+185 12.43920106769048 12.37947855328755 4.458208532973493
+186 9.440751243642241 9.250845683150894 3.299336216796891
+187 13.882833550753514 13.799393623349165 2.2042267324166924
+188 10.2172891943734 6.183826615663044 4.846767293325637
+189 5.440953370791901 8.533099412621603 2.030230572654037
+190 8.176939733692604 4.486523013379612 4.194226524828579
+191 10.219564973140042 3.077094888365625 6.873999070000227
+192 4.638506058561191 13.162744135326538 3.8839589797993495
+193 6.943884208122478 9.963745913838721 5.587442121224264
+194 3.0484662016403794 8.48542816847883 6.489083543826673
+195 12.535930372803586 10.429254960254383 4.216745501700352
+196 10.392897496904677 9.158786650847466 12.610357765429752
+197 2.235026478121448 4.277754148579069 10.130472541822439
+198 13.277108718132492 11.917579195174145 12.267048906443808
+199 13.626669485715121 9.64935971494982 13.336110046424198
+200 0.0 0.0 1.0
+201 0.0 0.0 15.0
+202 0.0 0.8 1.0
+203 0.0 0.8 15.0
+204 0.0 1.6 1.0
+205 0.0 1.6 15.0
+206 0.0 2.4 1.0
+207 0.0 2.4 15.0
+208 0.0 3.2 1.0
+209 0.0 3.2 15.0
+210 0.0 4.0 1.0
+211 0.0 4.0 15.0
+212 0.0 4.8 1.0
+213 0.0 4.8 15.0
+214 0.0 5.6 1.0
+215 0.0 5.6 15.0
+216 0.0 6.4 1.0
+217 0.0 6.4 15.0
+218 0.0 7.2 1.0
+219 0.0 7.2 15.0
+220 0.0 8.0 1.0
+221 0.0 8.0 15.0
+222 0.0 8.8 1.0
+223 0.0 8.8 15.0
+224 0.0 9.6 1.0
+225 0.0 9.6 15.0
+226 0.0 10.4 1.0
+227 0.0 10.4 15.0
+228 0.0 11.2 1.0
+229 0.0 11.2 15.0
+230 0.0 12.0 1.0
+231 0.0 12.0 15.0
+232 0.0 12.8 1.0
+233 0.0 12.8 15.0
+234 0.0 13.6 1.0
+235 0.0 13.6 15.0
+236 0.0 14.4 1.0
+237 0.0 14.4 15.0
+238 0.0 15.2 1.0
+239 0.0 15.2 15.0
+240 0.8 0.0 1.0
+241 0.8 0.0 15.0
+242 0.8 0.8 1.0
+243 0.8 0.8 15.0
+244 0.8 1.6 1.0
+245 0.8 1.6 15.0
+246 0.8 2.4 1.0
+247 0.8 2.4 15.0
+248 0.8 3.2 1.0
+249 0.8 3.2 15.0
+250 0.8 4.0 1.0
+251 0.8 4.0 15.0
+252 0.8 4.8 1.0
+253 0.8 4.8 15.0
+254 0.8 5.6 1.0
+255 0.8 5.6 15.0
+256 0.8 6.4 1.0
+257 0.8 6.4 15.0
+258 0.8 7.2 1.0
+259 0.8 7.2 15.0
+260 0.8 8.0 1.0
+261 0.8 8.0 15.0
+262 0.8 8.8 1.0
+263 0.8 8.8 15.0
+264 0.8 9.6 1.0
+265 0.8 9.6 15.0
+266 0.8 10.4 1.0
+267 0.8 10.4 15.0
+268 0.8 11.2 1.0
+269 0.8 11.2 15.0
+270 0.8 12.0 1.0
+271 0.8 12.0 15.0
+272 0.8 12.8 1.0
+273 0.8 12.8 15.0
+274 0.8 13.6 1.0
+275 0.8 13.6 15.0
+276 0.8 14.4 1.0
+277 0.8 14.4 15.0
+278 0.8 15.2 1.0
+279 0.8 15.2 15.0
+280 1.6 0.0 1.0
+281 1.6 0.0 15.0
+282 1.6 0.8 1.0
+283 1.6 0.8 15.0
+284 1.6 1.6 1.0
+285 1.6 1.6 15.0
+286 1.6 2.4 1.0
+287 1.6 2.4 15.0
+288 1.6 3.2 1.0
+289 1.6 3.2 15.0
+290 1.6 4.0 1.0
+291 1.6 4.0 15.0
+292 1.6 4.8 1.0
+293 1.6 4.8 15.0
+294 1.6 5.6 1.0
+295 1.6 5.6 15.0
+296 1.6 6.4 1.0
+297 1.6 6.4 15.0
+298 1.6 7.2 1.0
+299 1.6 7.2 15.0
+300 1.6 8.0 1.0
+301 1.6 8.0 15.0
+302 1.6 8.8 1.0
+303 1.6 8.8 15.0
+304 1.6 9.6 1.0
+305 1.6 9.6 15.0
+306 1.6 10.4 1.0
+307 1.6 10.4 15.0
+308 1.6 11.2 1.0
+309 1.6 11.2 15.0
+310 1.6 12.0 1.0
+311 1.6 12.0 15.0
+312 1.6 12.8 1.0
+313 1.6 12.8 15.0
+314 1.6 13.6 1.0
+315 1.6 13.6 15.0
+316 1.6 14.4 1.0
+317 1.6 14.4 15.0
+318 1.6 15.2 1.0
+319 1.6 15.2 15.0
+320 2.4 0.0 1.0
+321 2.4 0.0 15.0
+322 2.4 0.8 1.0
+323 2.4 0.8 15.0
+324 2.4 1.6 1.0
+325 2.4 1.6 15.0
+326 2.4 2.4 1.0
+327 2.4 2.4 15.0
+328 2.4 3.2 1.0
+329 2.4 3.2 15.0
+330 2.4 4.0 1.0
+331 2.4 4.0 15.0
+332 2.4 4.8 1.0
+333 2.4 4.8 15.0
+334 2.4 5.6 1.0
+335 2.4 5.6 15.0
+336 2.4 6.4 1.0
+337 2.4 6.4 15.0
+338 2.4 7.2 1.0
+339 2.4 7.2 15.0
+340 2.4 8.0 1.0
+341 2.4 8.0 15.0
+342 2.4 8.8 1.0
+343 2.4 8.8 15.0
+344 2.4 9.6 1.0
+345 2.4 9.6 15.0
+346 2.4 10.4 1.0
+347 2.4 10.4 15.0
+348 2.4 11.2 1.0
+349 2.4 11.2 15.0
+350 2.4 12.0 1.0
+351 2.4 12.0 15.0
+352 2.4 12.8 1.0
+353 2.4 12.8 15.0
+354 2.4 13.6 1.0
+355 2.4 13.6 15.0
+356 2.4 14.4 1.0
+357 2.4 14.4 15.0
+358 2.4 15.2 1.0
+359 2.4 15.2 15.0
+360 3.2 0.0 1.0
+361 3.2 0.0 15.0
+362 3.2 0.8 1.0
+363 3.2 0.8 15.0
+364 3.2 1.6 1.0
+365 3.2 1.6 15.0
+366 3.2 2.4 1.0
+367 3.2 2.4 15.0
+368 3.2 3.2 1.0
+369 3.2 3.2 15.0
+370 3.2 4.0 1.0
+371 3.2 4.0 15.0
+372 3.2 4.8 1.0
+373 3.2 4.8 15.0
+374 3.2 5.6 1.0
+375 3.2 5.6 15.0
+376 3.2 6.4 1.0
+377 3.2 6.4 15.0
+378 3.2 7.2 1.0
+379 3.2 7.2 15.0
+380 3.2 8.0 1.0
+381 3.2 8.0 15.0
+382 3.2 8.8 1.0
+383 3.2 8.8 15.0
+384 3.2 9.6 1.0
+385 3.2 9.6 15.0
+386 3.2 10.4 1.0
+387 3.2 10.4 15.0
+388 3.2 11.2 1.0
+389 3.2 11.2 15.0
+390 3.2 12.0 1.0
+391 3.2 12.0 15.0
+392 3.2 12.8 1.0
+393 3.2 12.8 15.0
+394 3.2 13.6 1.0
+395 3.2 13.6 15.0
+396 3.2 14.4 1.0
+397 3.2 14.4 15.0
+398 3.2 15.2 1.0
+399 3.2 15.2 15.0
+400 4.0 0.0 1.0
+401 4.0 0.0 15.0
+402 4.0 0.8 1.0
+403 4.0 0.8 15.0
+404 4.0 1.6 1.0
+405 4.0 1.6 15.0
+406 4.0 2.4 1.0
+407 4.0 2.4 15.0
+408 4.0 3.2 1.0
+409 4.0 3.2 15.0
+410 4.0 4.0 1.0
+411 4.0 4.0 15.0
+412 4.0 4.8 1.0
+413 4.0 4.8 15.0
+414 4.0 5.6 1.0
+415 4.0 5.6 15.0
+416 4.0 6.4 1.0
+417 4.0 6.4 15.0
+418 4.0 7.2 1.0
+419 4.0 7.2 15.0
+420 4.0 8.0 1.0
+421 4.0 8.0 15.0
+422 4.0 8.8 1.0
+423 4.0 8.8 15.0
+424 4.0 9.6 1.0
+425 4.0 9.6 15.0
+426 4.0 10.4 1.0
+427 4.0 10.4 15.0
+428 4.0 11.2 1.0
+429 4.0 11.2 15.0
+430 4.0 12.0 1.0
+431 4.0 12.0 15.0
+432 4.0 12.8 1.0
+433 4.0 12.8 15.0
+434 4.0 13.6 1.0
+435 4.0 13.6 15.0
+436 4.0 14.4 1.0
+437 4.0 14.4 15.0
+438 4.0 15.2 1.0
+439 4.0 15.2 15.0
+440 4.8 0.0 1.0
+441 4.8 0.0 15.0
+442 4.8 0.8 1.0
+443 4.8 0.8 15.0
+444 4.8 1.6 1.0
+445 4.8 1.6 15.0
+446 4.8 2.4 1.0
+447 4.8 2.4 15.0
+448 4.8 3.2 1.0
+449 4.8 3.2 15.0
+450 4.8 4.0 1.0
+451 4.8 4.0 15.0
+452 4.8 4.8 1.0
+453 4.8 4.8 15.0
+454 4.8 5.6 1.0
+455 4.8 5.6 15.0
+456 4.8 6.4 1.0
+457 4.8 6.4 15.0
+458 4.8 7.2 1.0
+459 4.8 7.2 15.0
+460 4.8 8.0 1.0
+461 4.8 8.0 15.0
+462 4.8 8.8 1.0
+463 4.8 8.8 15.0
+464 4.8 9.6 1.0
+465 4.8 9.6 15.0
+466 4.8 10.4 1.0
+467 4.8 10.4 15.0
+468 4.8 11.2 1.0
+469 4.8 11.2 15.0
+470 4.8 12.0 1.0
+471 4.8 12.0 15.0
+472 4.8 12.8 1.0
+473 4.8 12.8 15.0
+474 4.8 13.6 1.0
+475 4.8 13.6 15.0
+476 4.8 14.4 1.0
+477 4.8 14.4 15.0
+478 4.8 15.2 1.0
+479 4.8 15.2 15.0
+480 5.6 0.0 1.0
+481 5.6 0.0 15.0
+482 5.6 0.8 1.0
+483 5.6 0.8 15.0
+484 5.6 1.6 1.0
+485 5.6 1.6 15.0
+486 5.6 2.4 1.0
+487 5.6 2.4 15.0
+488 5.6 3.2 1.0
+489 5.6 3.2 15.0
+490 5.6 4.0 1.0
+491 5.6 4.0 15.0
+492 5.6 4.8 1.0
+493 5.6 4.8 15.0
+494 5.6 5.6 1.0
+495 5.6 5.6 15.0
+496 5.6 6.4 1.0
+497 5.6 6.4 15.0
+498 5.6 7.2 1.0
+499 5.6 7.2 15.0
+500 5.6 8.0 1.0
+501 5.6 8.0 15.0
+502 5.6 8.8 1.0
+503 5.6 8.8 15.0
+504 5.6 9.6 1.0
+505 5.6 9.6 15.0
+506 5.6 10.4 1.0
+507 5.6 10.4 15.0
+508 5.6 11.2 1.0
+509 5.6 11.2 15.0
+510 5.6 12.0 1.0
+511 5.6 12.0 15.0
+512 5.6 12.8 1.0
+513 5.6 12.8 15.0
+514 5.6 13.6 1.0
+515 5.6 13.6 15.0
+516 5.6 14.4 1.0
+517 5.6 14.4 15.0
+518 5.6 15.2 1.0
+519 5.6 15.2 15.0
+520 6.4 0.0 1.0
+521 6.4 0.0 15.0
+522 6.4 0.8 1.0
+523 6.4 0.8 15.0
+524 6.4 1.6 1.0
+525 6.4 1.6 15.0
+526 6.4 2.4 1.0
+527 6.4 2.4 15.0
+528 6.4 3.2 1.0
+529 6.4 3.2 15.0
+530 6.4 4.0 1.0
+531 6.4 4.0 15.0
+532 6.4 4.8 1.0
+533 6.4 4.8 15.0
+534 6.4 5.6 1.0
+535 6.4 5.6 15.0
+536 6.4 6.4 1.0
+537 6.4 6.4 15.0
+538 6.4 7.2 1.0
+539 6.4 7.2 15.0
+540 6.4 8.0 1.0
+541 6.4 8.0 15.0
+542 6.4 8.8 1.0
+543 6.4 8.8 15.0
+544 6.4 9.6 1.0
+545 6.4 9.6 15.0
+546 6.4 10.4 1.0
+547 6.4 10.4 15.0
+548 6.4 11.2 1.0
+549 6.4 11.2 15.0
+550 6.4 12.0 1.0
+551 6.4 12.0 15.0
+552 6.4 12.8 1.0
+553 6.4 12.8 15.0
+554 6.4 13.6 1.0
+555 6.4 13.6 15.0
+556 6.4 14.4 1.0
+557 6.4 14.4 15.0
+558 6.4 15.2 1.0
+559 6.4 15.2 15.0
+560 7.2 0.0 1.0
+561 7.2 0.0 15.0
+562 7.2 0.8 1.0
+563 7.2 0.8 15.0
+564 7.2 1.6 1.0
+565 7.2 1.6 15.0
+566 7.2 2.4 1.0
+567 7.2 2.4 15.0
+568 7.2 3.2 1.0
+569 7.2 3.2 15.0
+570 7.2 4.0 1.0
+571 7.2 4.0 15.0
+572 7.2 4.8 1.0
+573 7.2 4.8 15.0
+574 7.2 5.6 1.0
+575 7.2 5.6 15.0
+576 7.2 6.4 1.0
+577 7.2 6.4 15.0
+578 7.2 7.2 1.0
+579 7.2 7.2 15.0
+580 7.2 8.0 1.0
+581 7.2 8.0 15.0
+582 7.2 8.8 1.0
+583 7.2 8.8 15.0
+584 7.2 9.6 1.0
+585 7.2 9.6 15.0
+586 7.2 10.4 1.0
+587 7.2 10.4 15.0
+588 7.2 11.2 1.0
+589 7.2 11.2 15.0
+590 7.2 12.0 1.0
+591 7.2 12.0 15.0
+592 7.2 12.8 1.0
+593 7.2 12.8 15.0
+594 7.2 13.6 1.0
+595 7.2 13.6 15.0
+596 7.2 14.4 1.0
+597 7.2 14.4 15.0
+598 7.2 15.2 1.0
+599 7.2 15.2 15.0
+600 8.0 0.0 1.0
+601 8.0 0.0 15.0
+602 8.0 0.8 1.0
+603 8.0 0.8 15.0
+604 8.0 1.6 1.0
+605 8.0 1.6 15.0
+606 8.0 2.4 1.0
+607 8.0 2.4 15.0
+608 8.0 3.2 1.0
+609 8.0 3.2 15.0
+610 8.0 4.0 1.0
+611 8.0 4.0 15.0
+612 8.0 4.8 1.0
+613 8.0 4.8 15.0
+614 8.0 5.6 1.0
+615 8.0 5.6 15.0
+616 8.0 6.4 1.0
+617 8.0 6.4 15.0
+618 8.0 7.2 1.0
+619 8.0 7.2 15.0
+620 8.0 8.0 1.0
+621 8.0 8.0 15.0
+622 8.0 8.8 1.0
+623 8.0 8.8 15.0
+624 8.0 9.6 1.0
+625 8.0 9.6 15.0
+626 8.0 10.4 1.0
+627 8.0 10.4 15.0
+628 8.0 11.2 1.0
+629 8.0 11.2 15.0
+630 8.0 12.0 1.0
+631 8.0 12.0 15.0
+632 8.0 12.8 1.0
+633 8.0 12.8 15.0
+634 8.0 13.6 1.0
+635 8.0 13.6 15.0
+636 8.0 14.4 1.0
+637 8.0 14.4 15.0
+638 8.0 15.2 1.0
+639 8.0 15.2 15.0
+640 8.8 0.0 1.0
+641 8.8 0.0 15.0
+642 8.8 0.8 1.0
+643 8.8 0.8 15.0
+644 8.8 1.6 1.0
+645 8.8 1.6 15.0
+646 8.8 2.4 1.0
+647 8.8 2.4 15.0
+648 8.8 3.2 1.0
+649 8.8 3.2 15.0
+650 8.8 4.0 1.0
+651 8.8 4.0 15.0
+652 8.8 4.8 1.0
+653 8.8 4.8 15.0
+654 8.8 5.6 1.0
+655 8.8 5.6 15.0
+656 8.8 6.4 1.0
+657 8.8 6.4 15.0
+658 8.8 7.2 1.0
+659 8.8 7.2 15.0
+660 8.8 8.0 1.0
+661 8.8 8.0 15.0
+662 8.8 8.8 1.0
+663 8.8 8.8 15.0
+664 8.8 9.6 1.0
+665 8.8 9.6 15.0
+666 8.8 10.4 1.0
+667 8.8 10.4 15.0
+668 8.8 11.2 1.0
+669 8.8 11.2 15.0
+670 8.8 12.0 1.0
+671 8.8 12.0 15.0
+672 8.8 12.8 1.0
+673 8.8 12.8 15.0
+674 8.8 13.6 1.0
+675 8.8 13.6 15.0
+676 8.8 14.4 1.0
+677 8.8 14.4 15.0
+678 8.8 15.2 1.0
+679 8.8 15.2 15.0
+680 9.6 0.0 1.0
+681 9.6 0.0 15.0
+682 9.6 0.8 1.0
+683 9.6 0.8 15.0
+684 9.6 1.6 1.0
+685 9.6 1.6 15.0
+686 9.6 2.4 1.0
+687 9.6 2.4 15.0
+688 9.6 3.2 1.0
+689 9.6 3.2 15.0
+690 9.6 4.0 1.0
+691 9.6 4.0 15.0
+692 9.6 4.8 1.0
+693 9.6 4.8 15.0
+694 9.6 5.6 1.0
+695 9.6 5.6 15.0
+696 9.6 6.4 1.0
+697 9.6 6.4 15.0
+698 9.6 7.2 1.0
+699 9.6 7.2 15.0
+700 9.6 8.0 1.0
+701 9.6 8.0 15.0
+702 9.6 8.8 1.0
+703 9.6 8.8 15.0
+704 9.6 9.6 1.0
+705 9.6 9.6 15.0
+706 9.6 10.4 1.0
+707 9.6 10.4 15.0
+708 9.6 11.2 1.0
+709 9.6 11.2 15.0
+710 9.6 12.0 1.0
+711 9.6 12.0 15.0
+712 9.6 12.8 1.0
+713 9.6 12.8 15.0
+714 9.6 13.6 1.0
+715 9.6 13.6 15.0
+716 9.6 14.4 1.0
+717 9.6 14.4 15.0
+718 9.6 15.2 1.0
+719 9.6 15.2 15.0
+720 10.4 0.0 1.0
+721 10.4 0.0 15.0
+722 10.4 0.8 1.0
+723 10.4 0.8 15.0
+724 10.4 1.6 1.0
+725 10.4 1.6 15.0
+726 10.4 2.4 1.0
+727 10.4 2.4 15.0
+728 10.4 3.2 1.0
+729 10.4 3.2 15.0
+730 10.4 4.0 1.0
+731 10.4 4.0 15.0
+732 10.4 4.8 1.0
+733 10.4 4.8 15.0
+734 10.4 5.6 1.0
+735 10.4 5.6 15.0
+736 10.4 6.4 1.0
+737 10.4 6.4 15.0
+738 10.4 7.2 1.0
+739 10.4 7.2 15.0
+740 10.4 8.0 1.0
+741 10.4 8.0 15.0
+742 10.4 8.8 1.0
+743 10.4 8.8 15.0
+744 10.4 9.6 1.0
+745 10.4 9.6 15.0
+746 10.4 10.4 1.0
+747 10.4 10.4 15.0
+748 10.4 11.2 1.0
+749 10.4 11.2 15.0
+750 10.4 12.0 1.0
+751 10.4 12.0 15.0
+752 10.4 12.8 1.0
+753 10.4 12.8 15.0
+754 10.4 13.6 1.0
+755 10.4 13.6 15.0
+756 10.4 14.4 1.0
+757 10.4 14.4 15.0
+758 10.4 15.2 1.0
+759 10.4 15.2 15.0
+760 11.2 0.0 1.0
+761 11.2 0.0 15.0
+762 11.2 0.8 1.0
+763 11.2 0.8 15.0
+764 11.2 1.6 1.0
+765 11.2 1.6 15.0
+766 11.2 2.4 1.0
+767 11.2 2.4 15.0
+768 11.2 3.2 1.0
+769 11.2 3.2 15.0
+770 11.2 4.0 1.0
+771 11.2 4.0 15.0
+772 11.2 4.8 1.0
+773 11.2 4.8 15.0
+774 11.2 5.6 1.0
+775 11.2 5.6 15.0
+776 11.2 6.4 1.0
+777 11.2 6.4 15.0
+778 11.2 7.2 1.0
+779 11.2 7.2 15.0
+780 11.2 8.0 1.0
+781 11.2 8.0 15.0
+782 11.2 8.8 1.0
+783 11.2 8.8 15.0
+784 11.2 9.6 1.0
+785 11.2 9.6 15.0
+786 11.2 10.4 1.0
+787 11.2 10.4 15.0
+788 11.2 11.2 1.0
+789 11.2 11.2 15.0
+790 11.2 12.0 1.0
+791 11.2 12.0 15.0
+792 11.2 12.8 1.0
+793 11.2 12.8 15.0
+794 11.2 13.6 1.0
+795 11.2 13.6 15.0
+796 11.2 14.4 1.0
+797 11.2 14.4 15.0
+798 11.2 15.2 1.0
+799 11.2 15.2 15.0
+800 12.0 0.0 1.0
+801 12.0 0.0 15.0
+802 12.0 0.8 1.0
+803 12.0 0.8 15.0
+804 12.0 1.6 1.0
+805 12.0 1.6 15.0
+806 12.0 2.4 1.0
+807 12.0 2.4 15.0
+808 12.0 3.2 1.0
+809 12.0 3.2 15.0
+810 12.0 4.0 1.0
+811 12.0 4.0 15.0
+812 12.0 4.8 1.0
+813 12.0 4.8 15.0
+814 12.0 5.6 1.0
+815 12.0 5.6 15.0
+816 12.0 6.4 1.0
+817 12.0 6.4 15.0
+818 12.0 7.2 1.0
+819 12.0 7.2 15.0
+820 12.0 8.0 1.0
+821 12.0 8.0 15.0
+822 12.0 8.8 1.0
+823 12.0 8.8 15.0
+824 12.0 9.6 1.0
+825 12.0 9.6 15.0
+826 12.0 10.4 1.0
+827 12.0 10.4 15.0
+828 12.0 11.2 1.0
+829 12.0 11.2 15.0
+830 12.0 12.0 1.0
+831 12.0 12.0 15.0
+832 12.0 12.8 1.0
+833 12.0 12.8 15.0
+834 12.0 13.6 1.0
+835 12.0 13.6 15.0
+836 12.0 14.4 1.0
+837 12.0 14.4 15.0
+838 12.0 15.2 1.0
+839 12.0 15.2 15.0
+840 12.8 0.0 1.0
+841 12.8 0.0 15.0
+842 12.8 0.8 1.0
+843 12.8 0.8 15.0
+844 12.8 1.6 1.0
+845 12.8 1.6 15.0
+846 12.8 2.4 1.0
+847 12.8 2.4 15.0
+848 12.8 3.2 1.0
+849 12.8 3.2 15.0
+850 12.8 4.0 1.0
+851 12.8 4.0 15.0
+852 12.8 4.8 1.0
+853 12.8 4.8 15.0
+854 12.8 5.6 1.0
+855 12.8 5.6 15.0
+856 12.8 6.4 1.0
+857 12.8 6.4 15.0
+858 12.8 7.2 1.0
+859 12.8 7.2 15.0
+860 12.8 8.0 1.0
+861 12.8 8.0 15.0
+862 12.8 8.8 1.0
+863 12.8 8.8 15.0
+864 12.8 9.6 1.0
+865 12.8 9.6 15.0
+866 12.8 10.4 1.0
+867 12.8 10.4 15.0
+868 12.8 11.2 1.0
+869 12.8 11.2 15.0
+870 12.8 12.0 1.0
+871 12.8 12.0 15.0
+872 12.8 12.8 1.0
+873 12.8 12.8 15.0
+874 12.8 13.6 1.0
+875 12.8 13.6 15.0
+876 12.8 14.4 1.0
+877 12.8 14.4 15.0
+878 12.8 15.2 1.0
+879 12.8 15.2 15.0
+880 13.6 0.0 1.0
+881 13.6 0.0 15.0
+882 13.6 0.8 1.0
+883 13.6 0.8 15.0
+884 13.6 1.6 1.0
+885 13.6 1.6 15.0
+886 13.6 2.4 1.0
+887 13.6 2.4 15.0
+888 13.6 3.2 1.0
+889 13.6 3.2 15.0
+890 13.6 4.0 1.0
+891 13.6 4.0 15.0
+892 13.6 4.8 1.0
+893 13.6 4.8 15.0
+894 13.6 5.6 1.0
+895 13.6 5.6 15.0
+896 13.6 6.4 1.0
+897 13.6 6.4 15.0
+898 13.6 7.2 1.0
+899 13.6 7.2 15.0
+900 13.6 8.0 1.0
+901 13.6 8.0 15.0
+902 13.6 8.8 1.0
+903 13.6 8.8 15.0
+904 13.6 9.6 1.0
+905 13.6 9.6 15.0
+906 13.6 10.4 1.0
+907 13.6 10.4 15.0
+908 13.6 11.2 1.0
+909 13.6 11.2 15.0
+910 13.6 12.0 1.0
+911 13.6 12.0 15.0
+912 13.6 12.8 1.0
+913 13.6 12.8 15.0
+914 13.6 13.6 1.0
+915 13.6 13.6 15.0
+916 13.6 14.4 1.0
+917 13.6 14.4 15.0
+918 13.6 15.2 1.0
+919 13.6 15.2 15.0
+920 14.4 0.0 1.0
+921 14.4 0.0 15.0
+922 14.4 0.8 1.0
+923 14.4 0.8 15.0
+924 14.4 1.6 1.0
+925 14.4 1.6 15.0
+926 14.4 2.4 1.0
+927 14.4 2.4 15.0
+928 14.4 3.2 1.0
+929 14.4 3.2 15.0
+930 14.4 4.0 1.0
+931 14.4 4.0 15.0
+932 14.4 4.8 1.0
+933 14.4 4.8 15.0
+934 14.4 5.6 1.0
+935 14.4 5.6 15.0
+936 14.4 6.4 1.0
+937 14.4 6.4 15.0
+938 14.4 7.2 1.0
+939 14.4 7.2 15.0
+940 14.4 8.0 1.0
+941 14.4 8.0 15.0
+942 14.4 8.8 1.0
+943 14.4 8.8 15.0
+944 14.4 9.6 1.0
+945 14.4 9.6 15.0
+946 14.4 10.4 1.0
+947 14.4 10.4 15.0
+948 14.4 11.2 1.0
+949 14.4 11.2 15.0
+950 14.4 12.0 1.0
+951 14.4 12.0 15.0
+952 14.4 12.8 1.0
+953 14.4 12.8 15.0
+954 14.4 13.6 1.0
+955 14.4 13.6 15.0
+956 14.4 14.4 1.0
+957 14.4 14.4 15.0
+958 14.4 15.2 1.0
+959 14.4 15.2 15.0
+960 15.2 0.0 1.0
+961 15.2 0.0 15.0
+962 15.2 0.8 1.0
+963 15.2 0.8 15.0
+964 15.2 1.6 1.0
+965 15.2 1.6 15.0
+966 15.2 2.4 1.0
+967 15.2 2.4 15.0
+968 15.2 3.2 1.0
+969 15.2 3.2 15.0
+970 15.2 4.0 1.0
+971 15.2 4.0 15.0
+972 15.2 4.8 1.0
+973 15.2 4.8 15.0
+974 15.2 5.6 1.0
+975 15.2 5.6 15.0
+976 15.2 6.4 1.0
+977 15.2 6.4 15.0
+978 15.2 7.2 1.0
+979 15.2 7.2 15.0
+980 15.2 8.0 1.0
+981 15.2 8.0 15.0
+982 15.2 8.8 1.0
+983 15.2 8.8 15.0
+984 15.2 9.6 1.0
+985 15.2 9.6 15.0
+986 15.2 10.4 1.0
+987 15.2 10.4 15.0
+988 15.2 11.2 1.0
+989 15.2 11.2 15.0
+990 15.2 12.0 1.0
+991 15.2 12.0 15.0
+992 15.2 12.8 1.0
+993 15.2 12.8 15.0
+994 15.2 13.6 1.0
+995 15.2 13.6 15.0
+996 15.2 14.4 1.0
+997 15.2 14.4 15.0
+998 15.2 15.2 1.0
+999 15.2 15.2 15.0
+
+timestep indexed
+0 13.141316322254585 5.978485268749876 5.874162669134618
+1 8.952163032009896 7.643214163224017 2.1077538489650305
+2 12.24675318844532 8.061126231975289 13.396269736301678
+3 10.919949913596387 10.115157582769562 13.855640399973819
+4 9.618102280385596 5.627395152445171 11.726782071495135
+5 12.239009244995835 13.356796085263737 9.660117694256972
+6 7.615477943521606 8.564701615289456 7.879726953188516
+7 11.055978450525618 3.8115504189386655 11.419379864401353
+8 9.38862108119258 12.167954275723085 7.124186229087464
+9 11.697367123435775 14.168734729267959 10.696165574651376
+10 4.116448526304198 13.271382048541987 10.24861655512732
+11 10.397068545067619 8.901838195037191 3.9587496605559167
+12 12.911969348441254 6.772354324472514 10.433725222938552
+13 11.459561946090943 2.214811965358692 10.484431363883152
+14 7.696776519267704 4.976699847002827 8.611078418526567
+15 4.09001589715412 4.744571278612223 7.350319781647135
+16 11.611810908987536 7.591104923778097 7.384474773711967
+17 3.4794273125733466 4.686477822030243 9.852403067537871
+18 4.66434011085328 9.699615291566428 9.431079039207509
+19 7.6062854900431205 5.58436899499169 9.72134795413434
+20 3.194767969041223 5.787796736730377 3.088066422246675
+21 8.19344629553642 6.328321340811051 11.952118729471378
+22 3.5790373188896063 8.18943293831622 11.009384869957929
+23 8.843479469083736 2.814873664012468 11.726222461247362
+24 4.670526849374708 11.796963550608975 11.025628426245284
+25 2.798065235342821 9.385378323166885 13.775912619763467
+26 8.700750349274191 13.049787167655658 7.847183413986089
+27 3.023281901055377 8.461898218097767 8.379367408436385
+28 12.905962752339503 9.538813085267272 6.4179448034834845
+29 7.266958859976441 13.170196873687313 12.611535817221148
+30 6.364645513866787 5.1397998839018 9.671038251398855
+31 11.436905182035156 13.428081208853122 8.047092017941779
+32 4.546690397560675 13.893186981195306 6.46869478803997
+33 12.624649030862216 10.297551127516144 8.992837506640493
+34 13.082404859143555 6.955185904437688 13.853058876931359
+35 3.43385264149071 2.4736853069970315 3.9540688930343992
+36 13.860758989593881 12.130101837574298 10.066270190726833
+37 3.9847085685995665 11.644758558572006 12.9212770003093
+38 8.921163045169214 10.562909572435453 9.332109792445879
+39 6.485713219244701 7.438414710886095 6.770937774685566
+40 11.435143218395199 6.585704168739382 2.586803551146293
+41 13.296422223012419 13.384574239118727 10.386214936621098
+42 2.8207342823435475 9.547009972445812 10.513667398279887
+43 2.290337564816998 13.374639346566187 13.847123321504366
+44 6.517946316877493 10.364614956016812 8.843704683534842
+45 3.146120067807146 10.668401293074613 2.2869440859969083
+46 4.818498983918636 5.4685345955744 6.5581078743080585
+47 8.28991614636602 13.350319433153166 13.231971415418402
+48 6.677734758851681 4.61817581581177 5.798646885539025
+49 12.810501218485198 12.286482050725448 10.7932689252305
+50 13.625056527759691 9.033999186382829 10.70962054975329
+51 9.224637365228595 3.7405856227201113 13.28135392380718
+52 10.713756382357193 2.3781363079036706 5.689695395930636
+53 2.8161742607944333 6.04550193004882 2.0517778951960826
+54 8.865903212849531 10.383139995183413 10.71086019127389
+55 11.137078535568751 2.956159486093261 12.60303823209188
+56 3.9575131744243097 7.873044930725206 2.262567630028264
+57 11.915950933742002 10.094788992924686 5.875867949436638
+58 10.703152983325204 9.632095818334234 11.320432831348064
+59 7.623700858645938 13.473170630365846 8.945531841757203
+60 13.684546212236999 7.802062550211539 11.9050481022254
+61 11.083286834886032 11.110735806572022 13.193526232936991
+62 11.343231070004485 9.74279835438082 8.761775839792367
+63 13.965064317973427 5.317633541390497 5.0427464217118665
+64 4.80288451454579 12.418482246931312 9.345326400772626
+65 7.751259179206661 6.295456757970718 8.476965265868435
+66 13.110882411396297 4.947028661968878 2.8574519494518755
+67 7.0212433455748435 13.355922100727671 10.97583806928233
+68 10.17801244631435 4.324013610140902 12.838677283734139
+69 12.666202422069606 13.460982854297466 13.288560496584298
+70 7.24092690512626 3.6451728936857664 5.31246547969667
+71 11.292708354756439 3.519662845975905 13.869734974435714
+72 6.070053546884296 8.726024192184493 4.947002363837927
+73 6.771854833138912 4.800977682383317 4.135926466018383
+74 6.544508974641964 13.909428389225166 5.463550236417941
+75 2.5211632389942693 7.5193082323740255 6.859191628895118
+76 8.226158359132876 5.388120537044507 12.873692814640064
+77 7.549328736587294 7.411369728127642 9.216432834936516
+78 8.538233658003493 12.603606217376567 9.614056922160621
+79 5.6149912083364 3.0220197041307046 5.515733837910897
+80 11.375349275726633 4.901811197524141 3.8291082852539007
+81 5.078969226027097 2.6035571422224852 2.6350065643164724
+82 10.577128184185694 5.375278812004788 10.46740263536481
+83 13.378186305819407 3.811159654681106 5.25823490373808
+84 3.440735037804051 6.361217765050678 12.512041544358201
+85 12.044882877317281 5.671212626060953 3.1681090983884124
+86 8.009044763367891 8.101029067534277 3.0352718850987492
+87 9.32235567589075 6.723740674334353 8.020306712710607
+88 7.432868951496061 2.790650063999303 13.152045697909553
+89 5.966926209589712 9.628280688047269 9.73969767818992
+90 8.321155769551165 6.091928284171579 7.529194505281368
+91 4.6736936571407295 10.753074398363264 8.898360118730638
+92 12.104673580157009 2.234950872371722 5.293551390524749
+93 7.611843293239135 13.756571404980598 2.964853834840819
+94 10.098926030987272 5.8781889281621496 7.284974613718591
+95 8.104714602344096 2.0747767174322242 12.419026388026102
+96 5.621559634708505 10.764185251664284 9.548008406990645
+97 11.604787755212783 9.147067929596234 3.2753977400020324
+98 8.497019428729878 11.521601282530536 7.890918921311178
+99 11.727835911705135 2.1284768047786655 3.971965391146317
+100 7.5324392512966085 4.883673139389094 2.893127102184038
+101 3.594068702270409 11.562405894375157 5.832480517803001
+102 2.8916922762781803 13.110923315755503 8.334749864440862
+103 12.911140331997464 11.266166790768478 9.708551396831387
+104 12.574041495682298 13.894321070057096 3.949207677712059
+105 3.760850033371622 6.6660948236328075 2.427574261010278
+106 4.544673133232198 10.540907001211625 4.635001436546331
+107 2.8912924021308815 2.8602488882453514 11.057045828668668
+108 2.139043403217654 5.4934211550785665 12.17254115139189
+109 12.889593512397248 2.644880329550355 3.906470979193141
+110 11.392689225174877 9.425669224449724 13.069947891340894
+111 2.258343857298268 8.066003873076616 9.861105354598966
+112 13.540516556177026 14.14258083172763 4.76203408394049
+113 10.746335976705481 5.332318973665329 8.03615605296205
+114 4.658662768640541 8.06210521727605 4.711692105056375
+115 9.869770524876587 3.697598954800767 11.454805888105424
+116 7.3273497957137455 7.8983381245941855 11.044822679311533
+117 7.303476890736025 8.972300142524782 13.680668835339432
+118 8.704029342068289 3.668358912426148 9.221759130643107
+119 9.496569723691351 9.122859584125095 6.676886840161232
+120 5.5401100297118155 9.634820808676018 7.461386367933753
+121 12.020496477564109 4.4377784697864815 2.121273363102655
+122 12.063717685185363 11.274303262863883 5.640875925184581
+123 7.961734282262762 12.051721957347764 11.529151354943368
+124 13.715349135356453 7.857259612780917 13.26882813280281
+125 8.792589290406466 8.560052538908725 12.716120097643769
+126 12.636393682701177 10.775310160893044 6.571941040140409
+127 7.454802393723089 10.586985215973906 4.986593940489479
+128 10.95026995421031 9.915368568953362 3.953293248361313
+129 4.192358883488449 4.773654007003873 2.2726259396908373
+130 6.81497961995829 13.299762070629251 9.729336806680966
+131 2.922623259818801 7.21456476877632 10.374946547141912
+132 2.561306021682762 11.764771433181446 9.652595147058499
+133 6.872399979296232 12.192387470254117 3.0333323557692573
+134 4.22820615620669 5.410894471710785 11.947808436315636
+135 9.425342976366924 7.081082006304679 10.587720425862335
+136 4.686766384153865 6.6802011034713304 10.73793139195021
+137 2.878148812047449 4.620756198728358 5.1001925410669955
+138 3.801354916299715 2.057641188100629 10.595511035990517
+139 6.971267075091704 9.587332218674469 11.147980551614166
+140 8.661209317434707 9.81681404293637 13.548324245302986
+141 12.398057814222676 5.159510021928064 6.1175435816103905
+142 9.201039961275209 9.837358230345034 12.42253003606848
+143 10.105561974230433 3.3061128280861367 2.943775958585406
+144 12.626257934986779 3.0825715633961854 5.8293801239523555
+145 14.101773668917765 4.378913022950518 6.0201265900208565
+146 10.742172466230016 12.05817130263099 8.751756344130483
+147 10.591414717452121 4.172326183723021 7.399740930461282
+148 6.208900930312062 6.931968551683951 4.468090233345809
+149 8.632240032239142 5.659099194952346 9.050785205104185
+150 3.759214101752351 4.982281016043413 3.775415762568278
+151 8.52072296133294 4.247817140906215 10.38482313347301
+152 13.922632623467369 8.807039289343967 2.9689649909668017
+153 6.0559088998797055 6.747506298892649 9.815803219212322
+154 5.371492116627623 3.6726039255869845 3.0645192381254773
+155 9.438907100288262 5.451514883600783 8.264387476530636
+156 8.467147094212509 2.5215411734844557 5.9910041897626325
+157 12.790075711747976 4.116036800951113 10.158068171141725
+158 10.433175964580247 4.188578972319144 9.95468659073938
+159 10.07736563313768 9.168951179725115 13.935652319253695
+160 6.5782339999373605 8.067717086362967 9.843535299997336
+161 11.83000845736437 11.650067099262225 9.419057421087548
+162 3.9197579244054297 8.795763595191353 7.16655800613079
+163 3.7569052539958725 3.1429022507640423 11.843986200938575
+164 11.742095784208171 11.948885873186558 12.732260255251186
+165 3.757166265677387 10.221574122692004 12.24672192216449
+166 4.067399270109049 12.661475670293951 3.1440608550627025
+167 9.140948899279849 7.645490730229355 11.894882555934133
+168 6.610496609675456 3.3466320137863526 6.363392983658111
+169 12.281550848604326 5.571952447070058 12.607903554206683
+170 5.787854781290088 7.7325494067070615 8.233573388031568
+171 2.114796506278643 12.277071010559117 8.60163205338317
+172 11.757047866553991 6.485698250619218 9.567414375972325
+173 9.183207051656073 7.8818053514686515 5.922014473502632
+174 13.399693196030938 12.986270612619755 4.444008114922858
+175 9.006163400728916 6.4513566600806875 13.145603367438905
+176 3.614644962606331 11.608574219325295 2.795644582419342
+177 12.843258986259142 9.274112127003885 2.209883417973514
+178 7.018892317518455 9.394393564168498 4.12579204945003
+179 12.212048120809277 11.540855089551064 2.940066284990129
+180 10.466939344517595 8.41402970955734 6.198571461764564
+181 7.972629339209165 4.525345202699612 11.456081128445403
+182 8.193385284457026 9.3094113320183 5.979937521386539
+183 6.421596763978656 7.511915017911285 2.9125321916335976
+184 11.21209198970157 4.970839026322748 6.709255981912401
+185 12.41664342808184 12.355547569868639 4.462224396178373
+186 9.356801630889493 9.281483049463608 3.2414500913811772
+187 13.882833550753514 13.799393623349165 2.2042267324166924
+188 10.2172891943734 6.183826615663044 4.846767293325637
+189 5.379739328685341 8.433099412621603 2.130230572654037
+190 8.176939733692604 4.486523013379612 4.194226524828579
+191 10.219564973140042 3.077094888365625 6.873999070000227
+192 4.808303868171368 13.325278477951416 4.071311768373465
+193 6.743884208122479 9.763745913838722 5.787442121224263
+194 2.9484662016403793 8.58542816847883 6.389083543826674
+195 12.535930372803586 10.429254960254383 4.216745501700352
+196 10.392897496904677 9.158786650847466 12.610357765429752
+197 2.235026478121448 4.277754148579069 10.130472541822439
+198 13.277108718132492 11.917579195174145 12.267048906443808
+199 13.626669485715121 9.64935971494982 13.336110046424198
+200 0.0 0.0 1.0
+201 0.0 0.0 15.0
+202 0.0 0.8 1.0
+203 0.0 0.8 15.0
+204 0.0 1.6 1.0
+205 0.0 1.6 15.0
+206 0.0 2.4 1.0
+207 0.0 2.4 15.0
+208 0.0 3.2 1.0
+209 0.0 3.2 15.0
+210 0.0 4.0 1.0
+211 0.0 4.0 15.0
+212 0.0 4.8 1.0
+213 0.0 4.8 15.0
+214 0.0 5.6 1.0
+215 0.0 5.6 15.0
+216 0.0 6.4 1.0
+217 0.0 6.4 15.0
+218 0.0 7.2 1.0
+219 0.0 7.2 15.0
+220 0.0 8.0 1.0
+221 0.0 8.0 15.0
+222 0.0 8.8 1.0
+223 0.0 8.8 15.0
+224 0.0 9.6 1.0
+225 0.0 9.6 15.0
+226 0.0 10.4 1.0
+227 0.0 10.4 15.0
+228 0.0 11.2 1.0
+229 0.0 11.2 15.0
+230 0.0 12.0 1.0
+231 0.0 12.0 15.0
+232 0.0 12.8 1.0
+233 0.0 12.8 15.0
+234 0.0 13.6 1.0
+235 0.0 13.6 15.0
+236 0.0 14.4 1.0
+237 0.0 14.4 15.0
+238 0.0 15.2 1.0
+239 0.0 15.2 15.0
+240 0.8 0.0 1.0
+241 0.8 0.0 15.0
+242 0.8 0.8 1.0
+243 0.8 0.8 15.0
+244 0.8 1.6 1.0
+245 0.8 1.6 15.0
+246 0.8 2.4 1.0
+247 0.8 2.4 15.0
+248 0.8 3.2 1.0
+249 0.8 3.2 15.0
+250 0.8 4.0 1.0
+251 0.8 4.0 15.0
+252 0.8 4.8 1.0
+253 0.8 4.8 15.0
+254 0.8 5.6 1.0
+255 0.8 5.6 15.0
+256 0.8 6.4 1.0
+257 0.8 6.4 15.0
+258 0.8 7.2 1.0
+259 0.8 7.2 15.0
+260 0.8 8.0 1.0
+261 0.8 8.0 15.0
+262 0.8 8.8 1.0
+263 0.8 8.8 15.0
+264 0.8 9.6 1.0
+265 0.8 9.6 15.0
+266 0.8 10.4 1.0
+267 0.8 10.4 15.0
+268 0.8 11.2 1.0
+269 0.8 11.2 15.0
+270 0.8 12.0 1.0
+271 0.8 12.0 15.0
+272 0.8 12.8 1.0
+273 0.8 12.8 15.0
+274 0.8 13.6 1.0
+275 0.8 13.6 15.0
+276 0.8 14.4 1.0
+277 0.8 14.4 15.0
+278 0.8 15.2 1.0
+279 0.8 15.2 15.0
+280 1.6 0.0 1.0
+281 1.6 0.0 15.0
+282 1.6 0.8 1.0
+283 1.6 0.8 15.0
+284 1.6 1.6 1.0
+285 1.6 1.6 15.0
+286 1.6 2.4 1.0
+287 1.6 2.4 15.0
+288 1.6 3.2 1.0
+289 1.6 3.2 15.0
+290 1.6 4.0 1.0
+291 1.6 4.0 15.0
+292 1.6 4.8 1.0
+293 1.6 4.8 15.0
+294 1.6 5.6 1.0
+295 1.6 5.6 15.0
+296 1.6 6.4 1.0
+297 1.6 6.4 15.0
+298 1.6 7.2 1.0
+299 1.6 7.2 15.0
+300 1.6 8.0 1.0
+301 1.6 8.0 15.0
+302 1.6 8.8 1.0
+303 1.6 8.8 15.0
+304 1.6 9.6 1.0
+305 1.6 9.6 15.0
+306 1.6 10.4 1.0
+307 1.6 10.4 15.0
+308 1.6 11.2 1.0
+309 1.6 11.2 15.0
+310 1.6 12.0 1.0
+311 1.6 12.0 15.0
+312 1.6 12.8 1.0
+313 1.6 12.8 15.0
+314 1.6 13.6 1.0
+315 1.6 13.6 15.0
+316 1.6 14.4 1.0
+317 1.6 14.4 15.0
+318 1.6 15.2 1.0
+319 1.6 15.2 15.0
+320 2.4 0.0 1.0
+321 2.4 0.0 15.0
+322 2.4 0.8 1.0
+323 2.4 0.8 15.0
+324 2.4 1.6 1.0
+325 2.4 1.6 15.0
+326 2.4 2.4 1.0
+327 2.4 2.4 15.0
+328 2.4 3.2 1.0
+329 2.4 3.2 15.0
+330 2.4 4.0 1.0
+331 2.4 4.0 15.0
+332 2.4 4.8 1.0
+333 2.4 4.8 15.0
+334 2.4 5.6 1.0
+335 2.4 5.6 15.0
+336 2.4 6.4 1.0
+337 2.4 6.4 15.0
+338 2.4 7.2 1.0
+339 2.4 7.2 15.0
+340 2.4 8.0 1.0
+341 2.4 8.0 15.0
+342 2.4 8.8 1.0
+343 2.4 8.8 15.0
+344 2.4 9.6 1.0
+345 2.4 9.6 15.0
+346 2.4 10.4 1.0
+347 2.4 10.4 15.0
+348 2.4 11.2 1.0
+349 2.4 11.2 15.0
+350 2.4 12.0 1.0
+351 2.4 12.0 15.0
+352 2.4 12.8 1.0
+353 2.4 12.8 15.0
+354 2.4 13.6 1.0
+355 2.4 13.6 15.0
+356 2.4 14.4 1.0
+357 2.4 14.4 15.0
+358 2.4 15.2 1.0
+359 2.4 15.2 15.0
+360 3.2 0.0 1.0
+361 3.2 0.0 15.0
+362 3.2 0.8 1.0
+363 3.2 0.8 15.0
+364 3.2 1.6 1.0
+365 3.2 1.6 15.0
+366 3.2 2.4 1.0
+367 3.2 2.4 15.0
+368 3.2 3.2 1.0
+369 3.2 3.2 15.0
+370 3.2 4.0 1.0
+371 3.2 4.0 15.0
+372 3.2 4.8 1.0
+373 3.2 4.8 15.0
+374 3.2 5.6 1.0
+375 3.2 5.6 15.0
+376 3.2 6.4 1.0
+377 3.2 6.4 15.0
+378 3.2 7.2 1.0
+379 3.2 7.2 15.0
+380 3.2 8.0 1.0
+381 3.2 8.0 15.0
+382 3.2 8.8 1.0
+383 3.2 8.8 15.0
+384 3.2 9.6 1.0
+385 3.2 9.6 15.0
+386 3.2 10.4 1.0
+387 3.2 10.4 15.0
+388 3.2 11.2 1.0
+389 3.2 11.2 15.0
+390 3.2 12.0 1.0
+391 3.2 12.0 15.0
+392 3.2 12.8 1.0
+393 3.2 12.8 15.0
+394 3.2 13.6 1.0
+395 3.2 13.6 15.0
+396 3.2 14.4 1.0
+397 3.2 14.4 15.0
+398 3.2 15.2 1.0
+399 3.2 15.2 15.0
+400 4.0 0.0 1.0
+401 4.0 0.0 15.0
+402 4.0 0.8 1.0
+403 4.0 0.8 15.0
+404 4.0 1.6 1.0
+405 4.0 1.6 15.0
+406 4.0 2.4 1.0
+407 4.0 2.4 15.0
+408 4.0 3.2 1.0
+409 4.0 3.2 15.0
+410 4.0 4.0 1.0
+411 4.0 4.0 15.0
+412 4.0 4.8 1.0
+413 4.0 4.8 15.0
+414 4.0 5.6 1.0
+415 4.0 5.6 15.0
+416 4.0 6.4 1.0
+417 4.0 6.4 15.0
+418 4.0 7.2 1.0
+419 4.0 7.2 15.0
+420 4.0 8.0 1.0
+421 4.0 8.0 15.0
+422 4.0 8.8 1.0
+423 4.0 8.8 15.0
+424 4.0 9.6 1.0
+425 4.0 9.6 15.0
+426 4.0 10.4 1.0
+427 4.0 10.4 15.0
+428 4.0 11.2 1.0
+429 4.0 11.2 15.0
+430 4.0 12.0 1.0
+431 4.0 12.0 15.0
+432 4.0 12.8 1.0
+433 4.0 12.8 15.0
+434 4.0 13.6 1.0
+435 4.0 13.6 15.0
+436 4.0 14.4 1.0
+437 4.0 14.4 15.0
+438 4.0 15.2 1.0
+439 4.0 15.2 15.0
+440 4.8 0.0 1.0
+441 4.8 0.0 15.0
+442 4.8 0.8 1.0
+443 4.8 0.8 15.0
+444 4.8 1.6 1.0
+445 4.8 1.6 15.0
+446 4.8 2.4 1.0
+447 4.8 2.4 15.0
+448 4.8 3.2 1.0
+449 4.8 3.2 15.0
+450 4.8 4.0 1.0
+451 4.8 4.0 15.0
+452 4.8 4.8 1.0
+453 4.8 4.8 15.0
+454 4.8 5.6 1.0
+455 4.8 5.6 15.0
+456 4.8 6.4 1.0
+457 4.8 6.4 15.0
+458 4.8 7.2 1.0
+459 4.8 7.2 15.0
+460 4.8 8.0 1.0
+461 4.8 8.0 15.0
+462 4.8 8.8 1.0
+463 4.8 8.8 15.0
+464 4.8 9.6 1.0
+465 4.8 9.6 15.0
+466 4.8 10.4 1.0
+467 4.8 10.4 15.0
+468 4.8 11.2 1.0
+469 4.8 11.2 15.0
+470 4.8 12.0 1.0
+471 4.8 12.0 15.0
+472 4.8 12.8 1.0
+473 4.8 12.8 15.0
+474 4.8 13.6 1.0
+475 4.8 13.6 15.0
+476 4.8 14.4 1.0
+477 4.8 14.4 15.0
+478 4.8 15.2 1.0
+479 4.8 15.2 15.0
+480 5.6 0.0 1.0
+481 5.6 0.0 15.0
+482 5.6 0.8 1.0
+483 5.6 0.8 15.0
+484 5.6 1.6 1.0
+485 5.6 1.6 15.0
+486 5.6 2.4 1.0
+487 5.6 2.4 15.0
+488 5.6 3.2 1.0
+489 5.6 3.2 15.0
+490 5.6 4.0 1.0
+491 5.6 4.0 15.0
+492 5.6 4.8 1.0
+493 5.6 4.8 15.0
+494 5.6 5.6 1.0
+495 5.6 5.6 15.0
+496 5.6 6.4 1.0
+497 5.6 6.4 15.0
+498 5.6 7.2 1.0
+499 5.6 7.2 15.0
+500 5.6 8.0 1.0
+501 5.6 8.0 15.0
+502 5.6 8.8 1.0
+503 5.6 8.8 15.0
+504 5.6 9.6 1.0
+505 5.6 9.6 15.0
+506 5.6 10.4 1.0
+507 5.6 10.4 15.0
+508 5.6 11.2 1.0
+509 5.6 11.2 15.0
+510 5.6 12.0 1.0
+511 5.6 12.0 15.0
+512 5.6 12.8 1.0
+513 5.6 12.8 15.0
+514 5.6 13.6 1.0
+515 5.6 13.6 15.0
+516 5.6 14.4 1.0
+517 5.6 14.4 15.0
+518 5.6 15.2 1.0
+519 5.6 15.2 15.0
+520 6.4 0.0 1.0
+521 6.4 0.0 15.0
+522 6.4 0.8 1.0
+523 6.4 0.8 15.0
+524 6.4 1.6 1.0
+525 6.4 1.6 15.0
+526 6.4 2.4 1.0
+527 6.4 2.4 15.0
+528 6.4 3.2 1.0
+529 6.4 3.2 15.0
+530 6.4 4.0 1.0
+531 6.4 4.0 15.0
+532 6.4 4.8 1.0
+533 6.4 4.8 15.0
+534 6.4 5.6 1.0
+535 6.4 5.6 15.0
+536 6.4 6.4 1.0
+537 6.4 6.4 15.0
+538 6.4 7.2 1.0
+539 6.4 7.2 15.0
+540 6.4 8.0 1.0
+541 6.4 8.0 15.0
+542 6.4 8.8 1.0
+543 6.4 8.8 15.0
+544 6.4 9.6 1.0
+545 6.4 9.6 15.0
+546 6.4 10.4 1.0
+547 6.4 10.4 15.0
+548 6.4 11.2 1.0
+549 6.4 11.2 15.0
+550 6.4 12.0 1.0
+551 6.4 12.0 15.0
+552 6.4 12.8 1.0
+553 6.4 12.8 15.0
+554 6.4 13.6 1.0
+555 6.4 13.6 15.0
+556 6.4 14.4 1.0
+557 6.4 14.4 15.0
+558 6.4 15.2 1.0
+559 6.4 15.2 15.0
+560 7.2 0.0 1.0
+561 7.2 0.0 15.0
+562 7.2 0.8 1.0
+563 7.2 0.8 15.0
+564 7.2 1.6 1.0
+565 7.2 1.6 15.0
+566 7.2 2.4 1.0
+567 7.2 2.4 15.0
+568 7.2 3.2 1.0
+569 7.2 3.2 15.0
+570 7.2 4.0 1.0
+571 7.2 4.0 15.0
+572 7.2 4.8 1.0
+573 7.2 4.8 15.0
+574 7.2 5.6 1.0
+575 7.2 5.6 15.0
+576 7.2 6.4 1.0
+577 7.2 6.4 15.0
+578 7.2 7.2 1.0
+579 7.2 7.2 15.0
+580 7.2 8.0 1.0
+581 7.2 8.0 15.0
+582 7.2 8.8 1.0
+583 7.2 8.8 15.0
+584 7.2 9.6 1.0
+585 7.2 9.6 15.0
+586 7.2 10.4 1.0
+587 7.2 10.4 15.0
+588 7.2 11.2 1.0
+589 7.2 11.2 15.0
+590 7.2 12.0 1.0
+591 7.2 12.0 15.0
+592 7.2 12.8 1.0
+593 7.2 12.8 15.0
+594 7.2 13.6 1.0
+595 7.2 13.6 15.0
+596 7.2 14.4 1.0
+597 7.2 14.4 15.0
+598 7.2 15.2 1.0
+599 7.2 15.2 15.0
+600 8.0 0.0 1.0
+601 8.0 0.0 15.0
+602 8.0 0.8 1.0
+603 8.0 0.8 15.0
+604 8.0 1.6 1.0
+605 8.0 1.6 15.0
+606 8.0 2.4 1.0
+607 8.0 2.4 15.0
+608 8.0 3.2 1.0
+609 8.0 3.2 15.0
+610 8.0 4.0 1.0
+611 8.0 4.0 15.0
+612 8.0 4.8 1.0
+613 8.0 4.8 15.0
+614 8.0 5.6 1.0
+615 8.0 5.6 15.0
+616 8.0 6.4 1.0
+617 8.0 6.4 15.0
+618 8.0 7.2 1.0
+619 8.0 7.2 15.0
+620 8.0 8.0 1.0
+621 8.0 8.0 15.0
+622 8.0 8.8 1.0
+623 8.0 8.8 15.0
+624 8.0 9.6 1.0
+625 8.0 9.6 15.0
+626 8.0 10.4 1.0
+627 8.0 10.4 15.0
+628 8.0 11.2 1.0
+629 8.0 11.2 15.0
+630 8.0 12.0 1.0
+631 8.0 12.0 15.0
+632 8.0 12.8 1.0
+633 8.0 12.8 15.0
+634 8.0 13.6 1.0
+635 8.0 13.6 15.0
+636 8.0 14.4 1.0
+637 8.0 14.4 15.0
+638 8.0 15.2 1.0
+639 8.0 15.2 15.0
+640 8.8 0.0 1.0
+641 8.8 0.0 15.0
+642 8.8 0.8 1.0
+643 8.8 0.8 15.0
+644 8.8 1.6 1.0
+645 8.8 1.6 15.0
+646 8.8 2.4 1.0
+647 8.8 2.4 15.0
+648 8.8 3.2 1.0
+649 8.8 3.2 15.0
+650 8.8 4.0 1.0
+651 8.8 4.0 15.0
+652 8.8 4.8 1.0
+653 8.8 4.8 15.0
+654 8.8 5.6 1.0
+655 8.8 5.6 15.0
+656 8.8 6.4 1.0
+657 8.8 6.4 15.0
+658 8.8 7.2 1.0
+659 8.8 7.2 15.0
+660 8.8 8.0 1.0
+661 8.8 8.0 15.0
+662 8.8 8.8 1.0
+663 8.8 8.8 15.0
+664 8.8 9.6 1.0
+665 8.8 9.6 15.0
+666 8.8 10.4 1.0
+667 8.8 10.4 15.0
+668 8.8 11.2 1.0
+669 8.8 11.2 15.0
+670 8.8 12.0 1.0
+671 8.8 12.0 15.0
+672 8.8 12.8 1.0
+673 8.8 12.8 15.0
+674 8.8 13.6 1.0
+675 8.8 13.6 15.0
+676 8.8 14.4 1.0
+677 8.8 14.4 15.0
+678 8.8 15.2 1.0
+679 8.8 15.2 15.0
+680 9.6 0.0 1.0
+681 9.6 0.0 15.0
+682 9.6 0.8 1.0
+683 9.6 0.8 15.0
+684 9.6 1.6 1.0
+685 9.6 1.6 15.0
+686 9.6 2.4 1.0
+687 9.6 2.4 15.0
+688 9.6 3.2 1.0
+689 9.6 3.2 15.0
+690 9.6 4.0 1.0
+691 9.6 4.0 15.0
+692 9.6 4.8 1.0
+693 9.6 4.8 15.0
+694 9.6 5.6 1.0
+695 9.6 5.6 15.0
+696 9.6 6.4 1.0
+697 9.6 6.4 15.0
+698 9.6 7.2 1.0
+699 9.6 7.2 15.0
+700 9.6 8.0 1.0
+701 9.6 8.0 15.0
+702 9.6 8.8 1.0
+703 9.6 8.8 15.0
+704 9.6 9.6 1.0
+705 9.6 9.6 15.0
+706 9.6 10.4 1.0
+707 9.6 10.4 15.0
+708 9.6 11.2 1.0
+709 9.6 11.2 15.0
+710 9.6 12.0 1.0
+711 9.6 12.0 15.0
+712 9.6 12.8 1.0
+713 9.6 12.8 15.0
+714 9.6 13.6 1.0
+715 9.6 13.6 15.0
+716 9.6 14.4 1.0
+717 9.6 14.4 15.0
+718 9.6 15.2 1.0
+719 9.6 15.2 15.0
+720 10.4 0.0 1.0
+721 10.4 0.0 15.0
+722 10.4 0.8 1.0
+723 10.4 0.8 15.0
+724 10.4 1.6 1.0
+725 10.4 1.6 15.0
+726 10.4 2.4 1.0
+727 10.4 2.4 15.0
+728 10.4 3.2 1.0
+729 10.4 3.2 15.0
+730 10.4 4.0 1.0
+731 10.4 4.0 15.0
+732 10.4 4.8 1.0
+733 10.4 4.8 15.0
+734 10.4 5.6 1.0
+735 10.4 5.6 15.0
+736 10.4 6.4 1.0
+737 10.4 6.4 15.0
+738 10.4 7.2 1.0
+739 10.4 7.2 15.0
+740 10.4 8.0 1.0
+741 10.4 8.0 15.0
+742 10.4 8.8 1.0
+743 10.4 8.8 15.0
+744 10.4 9.6 1.0
+745 10.4 9.6 15.0
+746 10.4 10.4 1.0
+747 10.4 10.4 15.0
+748 10.4 11.2 1.0
+749 10.4 11.2 15.0
+750 10.4 12.0 1.0
+751 10.4 12.0 15.0
+752 10.4 12.8 1.0
+753 10.4 12.8 15.0
+754 10.4 13.6 1.0
+755 10.4 13.6 15.0
+756 10.4 14.4 1.0
+757 10.4 14.4 15.0
+758 10.4 15.2 1.0
+759 10.4 15.2 15.0
+760 11.2 0.0 1.0
+761 11.2 0.0 15.0
+762 11.2 0.8 1.0
+763 11.2 0.8 15.0
+764 11.2 1.6 1.0
+765 11.2 1.6 15.0
+766 11.2 2.4 1.0
+767 11.2 2.4 15.0
+768 11.2 3.2 1.0
+769 11.2 3.2 15.0
+770 11.2 4.0 1.0
+771 11.2 4.0 15.0
+772 11.2 4.8 1.0
+773 11.2 4.8 15.0
+774 11.2 5.6 1.0
+775 11.2 5.6 15.0
+776 11.2 6.4 1.0
+777 11.2 6.4 15.0
+778 11.2 7.2 1.0
+779 11.2 7.2 15.0
+780 11.2 8.0 1.0
+781 11.2 8.0 15.0
+782 11.2 8.8 1.0
+783 11.2 8.8 15.0
+784 11.2 9.6 1.0
+785 11.2 9.6 15.0
+786 11.2 10.4 1.0
+787 11.2 10.4 15.0
+788 11.2 11.2 1.0
+789 11.2 11.2 15.0
+790 11.2 12.0 1.0
+791 11.2 12.0 15.0
+792 11.2 12.8 1.0
+793 11.2 12.8 15.0
+794 11.2 13.6 1.0
+795 11.2 13.6 15.0
+796 11.2 14.4 1.0
+797 11.2 14.4 15.0
+798 11.2 15.2 1.0
+799 11.2 15.2 15.0
+800 12.0 0.0 1.0
+801 12.0 0.0 15.0
+802 12.0 0.8 1.0
+803 12.0 0.8 15.0
+804 12.0 1.6 1.0
+805 12.0 1.6 15.0
+806 12.0 2.4 1.0
+807 12.0 2.4 15.0
+808 12.0 3.2 1.0
+809 12.0 3.2 15.0
+810 12.0 4.0 1.0
+811 12.0 4.0 15.0
+812 12.0 4.8 1.0
+813 12.0 4.8 15.0
+814 12.0 5.6 1.0
+815 12.0 5.6 15.0
+816 12.0 6.4 1.0
+817 12.0 6.4 15.0
+818 12.0 7.2 1.0
+819 12.0 7.2 15.0
+820 12.0 8.0 1.0
+821 12.0 8.0 15.0
+822 12.0 8.8 1.0
+823 12.0 8.8 15.0
+824 12.0 9.6 1.0
+825 12.0 9.6 15.0
+826 12.0 10.4 1.0
+827 12.0 10.4 15.0
+828 12.0 11.2 1.0
+829 12.0 11.2 15.0
+830 12.0 12.0 1.0
+831 12.0 12.0 15.0
+832 12.0 12.8 1.0
+833 12.0 12.8 15.0
+834 12.0 13.6 1.0
+835 12.0 13.6 15.0
+836 12.0 14.4 1.0
+837 12.0 14.4 15.0
+838 12.0 15.2 1.0
+839 12.0 15.2 15.0
+840 12.8 0.0 1.0
+841 12.8 0.0 15.0
+842 12.8 0.8 1.0
+843 12.8 0.8 15.0
+844 12.8 1.6 1.0
+845 12.8 1.6 15.0
+846 12.8 2.4 1.0
+847 12.8 2.4 15.0
+848 12.8 3.2 1.0
+849 12.8 3.2 15.0
+850 12.8 4.0 1.0
+851 12.8 4.0 15.0
+852 12.8 4.8 1.0
+853 12.8 4.8 15.0
+854 12.8 5.6 1.0
+855 12.8 5.6 15.0
+856 12.8 6.4 1.0
+857 12.8 6.4 15.0
+858 12.8 7.2 1.0
+859 12.8 7.2 15.0
+860 12.8 8.0 1.0
+861 12.8 8.0 15.0
+862 12.8 8.8 1.0
+863 12.8 8.8 15.0
+864 12.8 9.6 1.0
+865 12.8 9.6 15.0
+866 12.8 10.4 1.0
+867 12.8 10.4 15.0
+868 12.8 11.2 1.0
+869 12.8 11.2 15.0
+870 12.8 12.0 1.0
+871 12.8 12.0 15.0
+872 12.8 12.8 1.0
+873 12.8 12.8 15.0
+874 12.8 13.6 1.0
+875 12.8 13.6 15.0
+876 12.8 14.4 1.0
+877 12.8 14.4 15.0
+878 12.8 15.2 1.0
+879 12.8 15.2 15.0
+880 13.6 0.0 1.0
+881 13.6 0.0 15.0
+882 13.6 0.8 1.0
+883 13.6 0.8 15.0
+884 13.6 1.6 1.0
+885 13.6 1.6 15.0
+886 13.6 2.4 1.0
+887 13.6 2.4 15.0
+888 13.6 3.2 1.0
+889 13.6 3.2 15.0
+890 13.6 4.0 1.0
+891 13.6 4.0 15.0
+892 13.6 4.8 1.0
+893 13.6 4.8 15.0
+894 13.6 5.6 1.0
+895 13.6 5.6 15.0
+896 13.6 6.4 1.0
+897 13.6 6.4 15.0
+898 13.6 7.2 1.0
+899 13.6 7.2 15.0
+900 13.6 8.0 1.0
+901 13.6 8.0 15.0
+902 13.6 8.8 1.0
+903 13.6 8.8 15.0
+904 13.6 9.6 1.0
+905 13.6 9.6 15.0
+906 13.6 10.4 1.0
+907 13.6 10.4 15.0
+908 13.6 11.2 1.0
+909 13.6 11.2 15.0
+910 13.6 12.0 1.0
+911 13.6 12.0 15.0
+912 13.6 12.8 1.0
+913 13.6 12.8 15.0
+914 13.6 13.6 1.0
+915 13.6 13.6 15.0
+916 13.6 14.4 1.0
+917 13.6 14.4 15.0
+918 13.6 15.2 1.0
+919 13.6 15.2 15.0
+920 14.4 0.0 1.0
+921 14.4 0.0 15.0
+922 14.4 0.8 1.0
+923 14.4 0.8 15.0
+924 14.4 1.6 1.0
+925 14.4 1.6 15.0
+926 14.4 2.4 1.0
+927 14.4 2.4 15.0
+928 14.4 3.2 1.0
+929 14.4 3.2 15.0
+930 14.4 4.0 1.0
+931 14.4 4.0 15.0
+932 14.4 4.8 1.0
+933 14.4 4.8 15.0
+934 14.4 5.6 1.0
+935 14.4 5.6 15.0
+936 14.4 6.4 1.0
+937 14.4 6.4 15.0
+938 14.4 7.2 1.0
+939 14.4 7.2 15.0
+940 14.4 8.0 1.0
+941 14.4 8.0 15.0
+942 14.4 8.8 1.0
+943 14.4 8.8 15.0
+944 14.4 9.6 1.0
+945 14.4 9.6 15.0
+946 14.4 10.4 1.0
+947 14.4 10.4 15.0
+948 14.4 11.2 1.0
+949 14.4 11.2 15.0
+950 14.4 12.0 1.0
+951 14.4 12.0 15.0
+952 14.4 12.8 1.0
+953 14.4 12.8 15.0
+954 14.4 13.6 1.0
+955 14.4 13.6 15.0
+956 14.4 14.4 1.0
+957 14.4 14.4 15.0
+958 14.4 15.2 1.0
+959 14.4 15.2 15.0
+960 15.2 0.0 1.0
+961 15.2 0.0 15.0
+962 15.2 0.8 1.0
+963 15.2 0.8 15.0
+964 15.2 1.6 1.0
+965 15.2 1.6 15.0
+966 15.2 2.4 1.0
+967 15.2 2.4 15.0
+968 15.2 3.2 1.0
+969 15.2 3.2 15.0
+970 15.2 4.0 1.0
+971 15.2 4.0 15.0
+972 15.2 4.8 1.0
+973 15.2 4.8 15.0
+974 15.2 5.6 1.0
+975 15.2 5.6 15.0
+976 15.2 6.4 1.0
+977 15.2 6.4 15.0
+978 15.2 7.2 1.0
+979 15.2 7.2 15.0
+980 15.2 8.0 1.0
+981 15.2 8.0 15.0
+982 15.2 8.8 1.0
+983 15.2 8.8 15.0
+984 15.2 9.6 1.0
+985 15.2 9.6 15.0
+986 15.2 10.4 1.0
+987 15.2 10.4 15.0
+988 15.2 11.2 1.0
+989 15.2 11.2 15.0
+990 15.2 12.0 1.0
+991 15.2 12.0 15.0
+992 15.2 12.8 1.0
+993 15.2 12.8 15.0
+994 15.2 13.6 1.0
+995 15.2 13.6 15.0
+996 15.2 14.4 1.0
+997 15.2 14.4 15.0
+998 15.2 15.2 1.0
+999 15.2 15.2 15.0
