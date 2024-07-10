@@ -2,19 +2,29 @@ import espressomd
 import numpy as np
 import espressomd.io.writer.vtf as vtf
 import espressomd.shapes
+import espressomd.lb
 from tqdm import tqdm
 
+
+#unit defined by elementary charge,k_b*300K as Energy, nm as length, 1 as mass
 box_length = 16
 safe_margin = 1.0
 elc_gap=5
+bjerrum_length = 0.7095
 num_free_particles = 200
 N_particles_per_wall_per_dim = 20
-
+fluid_density = 26.18
+viscosity = 0.25
+friction = 15.0
 
 system = espressomd.System(box_l=[box_length, box_length, box_length+2*safe_margin+elc_gap])
 system.time_step = 0.01
 system.cell_system.skin = 0.4
 system.periodicity = [True, True, True]
+
+# Lattice-Boltzmann
+lbf = espressomd.lb.LBFluidWalberla(agrid=1.0,density = fluid_density, kinematic_viscosity = viscosity, tau=0.01)
+system.lb=lbf
 
 fp = open("trajectory.vtf", mode="w+t")
 
@@ -67,14 +77,15 @@ system.integrator.run(1000)
 vtf.writevcf(system, fp)
 
 # Set up electrostatics with ELC
-solver = espressomd.electrostatics.P3M(prefactor=0.5, accuracy=1e-3)
+solver = espressomd.electrostatics.P3M(prefactor=bjerrum_length, accuracy=1e-3)
 
 elc = espressomd.electrostatics.ELC(actor=solver, gap_size=elc_gap, maxPWerror=1e-2)
 system.electrostatics.solver = elc
 
 print("Run")
 system.integrator.set_vv()
-for i in tqdm(range(100)):
+system.thermostat.set_lb(LB_fluid=lbf, seed=42,gamma = friction)
+for i in tqdm(range(1000)):
     system.integrator.run(100)
     vtf.writevcf(system, fp)
 fp.close()
