@@ -12,7 +12,7 @@ box_length = 16
 safe_margin = 1.0
 elc_gap=5
 bjerrum_length = 0.7095
-num_free_particles = 200
+num_free_particles = 2000
 N_particles_per_wall_per_dim = 20
 fluid_density = 26.18
 viscosity = 0.25
@@ -75,8 +75,9 @@ system.constraints.add(E_field)
 vtf.writevsf(system, fp)
 vtf.writevcf(system, fp)
 
-part_vel = obs.FluxDensityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=100,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin)
-
+part_vel = obs.FluxDensityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=1000,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin)
+fluid_vel = obs.LBVelocityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=1000,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin,sampling_delta_x=5,sampling_delta_y=5,sampling_delta_z=5,allow_empty_bins=True,sampling_offset_z=0,sampling_offset_y=0,sampling_offset_x=0)
+dens = obs.DensityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=1000,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin)
 print("Cooldown")
 system.integrator.set_steepest_descent(f_max=0, gamma=0.1, max_displacement=0.1)
 system.integrator.run(1000)
@@ -94,11 +95,19 @@ system.thermostat.set_lb(LB_fluid=lbf, seed=42,gamma = friction)
 system.integrator.run(1000)
 
 print("Run")
-list=[]
-for i in tqdm(range(1000)):
+part_vel_list=[]
+lb_vel=[]
+dens_list=[]
+for i in tqdm(range(3000)):
     system.integrator.run(100)
-    list.append(part_vel.calculate())
+    part_vel_list.append(part_vel.calculate())
+    lb_vel.append(fluid_vel.calculate())
+    dens_list.append(dens.calculate())
     vtf.writevcf(system, fp)
 fp.close()
-list=np.array(list)
-np.save("flux_density.npy",list)
+part_vel_list=np.array(part_vel_list)
+lb_vel=np.array(lb_vel)
+dens_list=np.array(dens_list)
+np.save("part_vel.npy",part_vel_list)
+np.save("dens.npy",dens_list)
+np.save("lb_vel.npy",lb_vel)
