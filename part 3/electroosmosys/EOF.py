@@ -6,19 +6,21 @@ import espressomd.lb
 import espressomd.observables as obs
 import espressomd.visualization
 from tqdm import tqdm
-
+import logging
 
 #unit defined by elementary charge,k_b*300K as Energy, nm as length, 1 as mass
 box_length = 16
 safe_margin = 2.0
 elc_gap=5.0
 bjerrum_length = 0.7095
-num_free_particles = 500
-N_particles_per_wall_per_dim = 20
+num_free_particles = 50
+N_particles_per_wall_per_dim = 8
 fluid_density = 26.18
 viscosity = 0.25
 friction = 15.0
 E_field = [25.0,0,0]
+logger=logging.getLogger(__name__)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_length, num_free_particles, N_particles_per_wall_per_dim, fluid_density, viscosity, friction, E_field):
     system = espressomd.System(box_l=[box_length, box_length, box_length+2*safe_margin+elc_gap])
@@ -30,7 +32,6 @@ def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_lengt
     lbf = espressomd.lb.LBFluidWalberlaGPU(agrid=1.0,density = fluid_density, kinematic_viscosity = viscosity, tau=0.01)
     system.lb=lbf
 
-    fp = open("trajectory.vtf", mode="w+t")
 
 # Ensure free particles are well within the box to avoid entering ELC gap region
 
@@ -60,10 +61,10 @@ def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_lengt
         )
 
 # Add Walls 
-    wall = espressomd.shapes.Wall(normal=[0, 0, 1], dist=0)
+    wall = espressomd.shapes.Wall(normal=[0, 0, 1], dist=0.2)
     system.constraints.add(shape=wall, particle_type=1)
     lbf.add_boundary_from_shape(shape=wall)
-    wall = espressomd.shapes.Wall(normal=[0, 0, -1], dist=-(box_length))
+    wall = espressomd.shapes.Wall(normal=[0, 0, -1], dist=-(box_length-0.2))
     system.constraints.add(shape=wall, particle_type=1)
     lbf.add_boundary_from_shape(shape=wall)
 
@@ -76,6 +77,7 @@ def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_lengt
     system.constraints.add(E_field)
 
 # Write initial configuration
+    fp = open("trajectory.vtf", mode="w+t")
     vtf.writevsf(system, fp)
     vtf.writevcf(system, fp)
 
@@ -83,18 +85,19 @@ def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_lengt
     fluid_vel = obs.LBVelocityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=1000,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin,sampling_delta_x=5,sampling_delta_y=5,sampling_delta_z=5,allow_empty_bins=True,sampling_offset_z=0,sampling_offset_y=0,sampling_offset_x=0)
     dens = obs.DensityProfile(ids=range(num_free_particles), n_x_bins =1,n_y_bins=1,n_z_bins=1000,min_x=0,max_x=box_length,min_y=0,max_y=box_length,min_z=safe_margin,max_z=box_length+2*safe_margin)
 
-    print("Cooldown")
+    logging.info("Remove overlaps")
     system.integrator.set_steepest_descent(f_max=0, gamma=0.1, max_displacement=0.1)
     system.integrator.run(1000)
     vtf.writevcf(system, fp)
 
-# Set up electrostatics with ELC
-    solver = espressomd.electrostatics.P3M(prefactor=bjerrum_length, accuracy=1e-3)
 
+# Set up electrostatics with ELC
+    logging.info("Set up electrostatics with ELC")
+    solver = espressomd.electrostatics.P3M(prefactor=bjerrum_length, accuracy=1e-3)
     elc = espressomd.electrostatics.ELC(actor=solver, gap_size=elc_gap-2*safe_margin, maxPWerror=1e-2)
     system.electrostatics.solver = elc
 
-    print("Equilibrate")
+    logging.info("Equilibrate system")
     system.integrator.set_vv()
     system.thermostat.set_lb(LB_fluid=lbf, seed=42,gamma = friction)
     system.integrator.run(3000)
@@ -104,18 +107,23 @@ def generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_lengt
 
 
 def run_simulation(system,fp,part_vel,fluid_vel,dens):
-    print("Run")
+    logging.info("Run simulation")
     part_vel_list=[]
     lb_vel=[]
     dens_list=[]
-    for i in tqdm(range(10000)):
+    for i in tqdm(range(1000)):
         try:
-            system.integrator.run(100)
+            system.integrator.run(300)
             part_vel_list.append(part_vel.calculate())
             lb_vel.append(fluid_vel.calculate())
             dens_list.append(dens.calculate())
             # print(system.analysis.linear_momentum(include_lbfluid=False))
             vtf.writevcf(system, fp)
+            if i %3000==0:
+                logging.info("Save data")
+                np.save("part_vel.npy",part_vel_list)
+                np.save("dens.npy",dens_list)
+                np.save("lb_vel.npy",lb_vel)
         except:
             fp = open("fatal.vtf", mode="w+t")
             vtf.writevsf(system, fp)
@@ -132,5 +140,6 @@ def run_simulation(system,fp,part_vel,fluid_vel,dens):
     np.save("lb_vel.npy",lb_vel)
 
 if __name__ == "__main__":
+
     system, fp, part_vel, fluid_vel, dens = generateInitialConfiguration(box_length, safe_margin, elc_gap, bjerrum_length, num_free_particles, N_particles_per_wall_per_dim, fluid_density, viscosity, friction, E_field)
     run_simulation(system,fp,part_vel,fluid_vel,dens)
